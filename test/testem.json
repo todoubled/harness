@@ -8,7 +8,7 @@
     "public/vendor/backbone/backbone-0.9.2.js",
     "public/vendor/mustache/mustache-0.5.0-dev.js",
     "public/dev-helper.js",
-    "tests.js"
+    "test/tests.js"
   ],
   "src_files": [
     "source/**/*.coffee",
