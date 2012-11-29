@@ -1,7 +1,29 @@
 # Harness
 
-### TL;DR
-Tools for writing HTML, CSS, and JavaScript with unit and integration testing, dependency management, and deployment.
+Tools for writing HTML, CSS, and JavaScript with unit and integration testing, dependency management, deployment and API mocks.
+
+`harness` was created out of the need to develop JavaScript apps independently of the server stack that is used in production.
+Write an app with `harness` and deploy it to any host web app.
+`harness` apps have their own unit and integration test suite.
+
+
+### Testing
+Testing is covered on both a unit and integration level.
+
+
+### Dependency Management
+Dependencies are managed with the excellent [`browserify`](https://github.com/substack/node-browserify).
+
+
+### Deployment
+Deployment is a bit different than the usual sense. `harness` can "deploy" to any directory on your local file system.
+This makes it very easy to deploy your latest build to another repo on your filesystem, like a Rails app for example.
+
+
+### API Mocks
+`harness` makes it really easy to test your UI against specific data sets returned from an API.
+You're free to hit actual remote endpoints if you want, but `harness` makes it very easy to save and reproduce edge-case API responses locally.
+API mocks also make the integration tests fast, because API calls are local to the `harness` server.
 
 ---
 
