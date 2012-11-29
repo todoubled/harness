@@ -1,11 +1,11 @@
 # Harness
 
 ### TL;DR
-Tools for building HTML, CSS, and JavaScript with unit and integration testing, dependency management and strategies for unobtrusive integration with server-side applications.
+Tools for writing HTML, CSS, and JavaScript with unit and integration testing, dependency management, and deployment.
 
 ---
 
-`harness` is a development stack for building client-side applications. It's meant to ease development of small client-side applications that can be embedded in larger server-side applications.
+`harness` is a set of scripts and tasks for building JavaScript applications. It's meant to ease development of small client-side applications that can be embedded in larger server-side applications.
 
 The goal is to surpass the niceties of writing client-side code within the development harness of a server-side codebase (asset preprocessing, templating, testing, rapid integration, etc.),
 making it easy to __work independently in a separate codebase__.
