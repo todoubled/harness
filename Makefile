@@ -30,7 +30,7 @@ test :
 	./harness/env.sh testem -f harness/testem.json app/test
 
 watch :
-	./harness/env.sh watchman app/src "make build"
+	./harness/env.sh watchman app/source "make build"
 
 webserver :
 	./harness/env.sh coffee harness/server
