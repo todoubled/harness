@@ -1,0 +1,11 @@
+{
+  "development-server": [
+    "make webserver",
+    "make watch"
+   ],
+
+  "integration-tests": [
+    "make webserver PORT=8081",
+    "casperjs test --includes=harness/casper-helpers.coffee,$CASPER_HELPERS --fail-fast --cookies-file=/dev/null? app/test/integration"
+  ]
+}
