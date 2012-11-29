@@ -1,5 +1,5 @@
 export PATH="./node_modules/.bin:$PATH"
-export JS_OUTPUT="public/harness.js"
-export CSS_OUTPUT="public/harness.css"
+export PROJECT_PREFIX="gift-finder"
+export CASPER_HELPERS="app/test/casper-helpers.coffee"
 
 exec "$@"

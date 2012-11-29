@@ -1,15 +1,16 @@
-# # `make server`
-#
-cp = require 'child_process'
-processes = ['make dev-server', 'make watch-source', 'make watch-test', 'make reload']
+express = require 'express'
+livereload = require 'livereload'
+root = require('path').normalize "#{__dirname}/.."
+routes = require "#{root}/app/routes.coffee"
+pub = "#{root}/app/public"
 
-# ### Process Manager
-#
-# Run multiple long running processes and kill all if one exits.
-#
-processes.forEach (proc) ->
-  p = cp.spawn 'sh', ['-c', proc]
-  p.stdout.setEncoding 'utf8'
-  p.stderr.pipe process.stderr
-  p.stdout.pipe process.stdout
-  p.on 'exit', (code) -> process.exit(code) if code
+if process.env.PORT is 8080
+  refresher = livereload.createServer()
+  refresher.watch pub
+
+app = express()
+app.use express.static pub
+app.use express.bodyParser()
+app.use app.router
+app.use routes
+app.listen process.env.PORT or 8080
