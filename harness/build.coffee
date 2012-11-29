@@ -12,7 +12,7 @@ shell = (command) -> spawn 'sh', ['-c', "./harness/env.sh #{command}"]
 stylusOptions = '--line-numbers'
 
 tmplates = "#{root}/node_modules/tmplates"
-templates = "#{root}/app/src/templates"
+templates = "#{root}/app/source/templates"
 
 if process.env.NODE_ENV is 'release'
   stylusOptions = noLineNumbers = ''
@@ -34,11 +34,11 @@ handleStderr = (processes) ->
 #
 # ### Templates
 #
-# `src/templates/*.mustache` is piped into a `Templates` object that is exported by `node_modules/tmplates`.
+# `source/templates/*.mustache` is piped into a `Templates` object that is exported by `node_modules/tmplates`.
 #
 # - Accessible via `Templates = require('tmplates');`
-# - Keys are `src/templates/*.mustache` file names
-# - Values are `src/templates/*.mustache` file contents
+# - Keys are `source/templates/*.mustache` file names
+# - Values are `source/templates/*.mustache` file contents
 #
 buildTemplates = (next) ->
   lastPosition = fs.readdirSync(templates).length - 1
@@ -66,12 +66,12 @@ buildTemplates = (next) ->
 #
 buildAssets = (next) ->
   unitTests = shell "browserify ./app/test/unit/**/*.coffee -o app/harness-tests.js"
-  integrationJs = shell 'coffee -co app/public app/src/coffeescripts/integration.coffee'
-  helperJs = shell 'coffee -co app/public app/src/coffeescripts/dev-helper.coffee'
-  integrationStyles = shell "stylus #{stylusOptions} -I app/src/stylesheets/ -o app/public/ app/src/stylesheets/integration.styl"
-  mainStyles = shell "stylus #{stylusOptions} -I app/src/stylesheets/ -o app/public/ app/src/stylesheets/gift-finder.styl"
+  integrationJs = shell 'coffee -co app/public app/source/coffeescripts/integration.coffee'
+  helperJs = shell 'coffee -co app/public app/source/coffeescripts/dev-helper.coffee'
+  integrationStyles = shell "stylus #{stylusOptions} -I app/source/stylesheets/ -o app/public/ app/source/stylesheets/integration.styl"
+  mainStyles = shell "stylus #{stylusOptions} -I app/source/stylesheets/ -o app/public/ app/source/stylesheets/#{process.env.PROJECT_PREFIX}.styl"
   handleStderr [unitTests, integrationJs, helperJs, integrationStyles, mainStyles]
-  bundleMainJs 'app/src/coffeescripts/app/index.coffee'
+  bundleMainJs 'app/source/coffeescripts/app/index.coffee'
   next null
 # ----
 
