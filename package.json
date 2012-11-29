@@ -1,8 +1,8 @@
 {
-  "author": "Gifting <gifting-dev@groupon.com>",
-  "name": "gift-finder",
-  "description": "Client-side app for finding a Groupon to gift.",
-  "version": "1.0.0",
+  "author": "Todd Larsen <toddlar@gmail.com>",
+  "name": "harness",
+  "description": "Tools for building JavaScript applications.",
+  "version": "0.1.0",
   "dependencies": {
     "coffee-script": "1.3.3",
     "stylus": "0.29.0",
