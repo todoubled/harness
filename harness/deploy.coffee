@@ -1,3 +1,9 @@
+#
+# # `make deploy`
+#
+# - Accepts an OUTPUT environment variable to deploy the built assets to a specific path on the local filesystem.
+# - Default output is the current working directory.
+#
 fs = require 'fs'
 {spawn} = require 'child_process'
 root = require('path').normalize "#{__dirname}/.."
