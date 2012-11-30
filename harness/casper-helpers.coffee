@@ -33,7 +33,7 @@ casper.decodeResourceUrl = (resource, division, dealTypes) ->
 
 
 #
-# ##### Get just the value segment of the cookie.
+# ###### Get just the value segment of the cookie.
 #
 casper.getCookieValue = (page) ->
   decodeURIComponent(@readCookie(page, 'value')).split '|'
@@ -41,7 +41,7 @@ casper.getCookieValue = (page) ->
 
 
 #
-# ##### Clear cookies before the test run starts to avoid pollution.
+# ###### Clear cookies before the test run starts to avoid pollution.
 #
 casper.on 'run.start', ->
   @page.clearCookies()
@@ -49,7 +49,7 @@ casper.on 'run.start', ->
 
 
 #
-# ##### Reset the URL hash after each test run completes to avoid pollution.
+# ###### Reset the URL hash after each test run completes to avoid pollution.
 #
 casper.on 'run.complete', ->
   @evaluate ->
