@@ -1,45 +1,73 @@
-<!DOCTYPE html><html lang="en"><head><title>Makefile</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="Makefile"><meta name="groc-project-path" content="Makefile"><meta name="groc-github-url" content="https://github.com/todoubled/todoubled"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/todoubled/todoubled/blob/master/Makefile">Makefile</a></div></div><div id="document"><div class="segment"><div class="comments"><div class="wrapper"><h2 id="development-tasks">Development Tasks</h2></div></div></div><div class="segment"><div class="code"><div class="wrapper"><span class="nf">.PHONY</span><span class="o">:</span> <span class="m">test docs</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makebuild"><code>make build</code></h4>
+<!DOCTYPE html><html lang="en"><head><title>Makefile</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="Makefile"><meta name="groc-project-path" content="Makefile"><meta name="groc-github-url" content="https://github.com/todoubled/todoubled"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/todoubled/todoubled/blob/master/Makefile">Makefile</a></div></div><div id="document"><div class="segment"><div class="comments"><div class="wrapper"><h2 id="development-tasks">Development Tasks</h2>
+
+<h5 id="most-common-tasks">Most Common Tasks</h5>
+
+<ul>
+<li><code>make server</code></li>
+<li><code>make test</code></li>
+<li><code>make itest</code></li>
+<li><code>make deploy</code></li>
+</ul>
+
+<hr /></div></div><div class="code"><div class="wrapper"><span class="nf">.PHONY</span><span class="o">:</span> <span class="m">test docs</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makebuild"><code>make build</code></h4>
 
 <ul>
 <li>compile HTML templates, CoffeeScript and Stylus files into 1 <code>.js</code> and 1 <code>.css</code> file.</li>
 </ul></div></div><div class="code"><div class="wrapper"><span class="nf">build </span><span class="o">:</span>
-  ./harness/env.sh coffee harness/build</div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makedeployoutputabsolutepathtorailsapp"><code>make deploy OUTPUT=/absolute/path/to/rails/app</code></h4>
+  ./harness/env.sh coffee harness/build</div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makedeployoutputabsolutepathtorailsapp"><code>make deploy OUTPUT=/absolute/path/to/rails/app</code></h4>
 
 <ul>
 <li>"Deploy" in the sense of copying built assets into another local app repository</li>
 </ul></div></div><div class="code"><div class="wrapper"><span class="nf">deploy </span><span class="o">:</span>
   make release
-  ./harness/env.sh coffee harness/deploy</div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makedocs"><code>make docs</code></h4>
+  ./harness/env.sh coffee harness/deploy</div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makedocs"><code>make docs</code></h4>
 
 <p>Generate documentation from inline comments in the source CoffeeScript files.</p></div></div><div class="code"><div class="wrapper"><span class="nf">docs </span><span class="o">:</span>
-  ./harness/env.sh groc -e <span class="s2">&quot;./node_modules/**/*&quot;</span> <span class="s2">&quot;./**/*.coffee&quot;</span> README.md</div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makeinstall"><code>make install</code></h4>
+  ./harness/env.sh groc -e <span class="s2">&quot;./node_modules/**/*&quot;</span> <span class="s2">&quot;./**/*.coffee&quot;</span> README.md</div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makeinstall"><code>make install</code></h4>
 
 <p>Install all npm dependencies.</p></div></div><div class="code"><div class="wrapper"><span class="nf">install </span><span class="o">:</span>
-  ./harness/env.sh npm install</div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makeitest"><code>make itest</code></h4>
+  ./harness/env.sh npm install</div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makeitest"><code>make itest</code></h4>
 
 <ul>
 <li>Create a fresh build and start up the development server at <code>localhost:8081</code>.</li>
 <li>Use <a href="http://casperjs.org/">casper.js</a> to browse the app headlessly and run integration tests.</li>
-<li>Simulates a clicking, form filling, and URL manipulation.</li>
+<li>Simulate clicking, form filling, and URL manipulation.</li>
 <li>Assert cookie values, URL values, and UI values.</li>
 </ul></div></div><div class="code"><div class="wrapper"><span class="nf">itest </span><span class="o">:</span>
   make build
-  ./harness/env.sh coffee harness/start integration-tests
+  ./harness/env.sh coffee harness/start integration-tests</div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makerelease"><code>make release</code></h4>
 
-<span class="nf">release </span><span class="o">:</span>
+<ul>
+<li>Create a fresh build with optimized assets.</li>
+<li>Prepend an FYI to the generated <code>.js</code> and <code>.css</code>.</li>
+</ul></div></div><div class="code"><div class="wrapper"><span class="nf">release </span><span class="o">:</span>
   <span class="nv">NODE_ENV</span><span class="o">=</span>release make build
   <span class="nb">echo</span> <span class="s2">&quot;//Generated by https://github.com/todoubled/harness&quot;</span>|cat - ./app/public/<span class="nv">$PROJECT_PREFIX</span>.js &gt; /tmp/out <span class="o">&amp;&amp;</span> mv /tmp/out ./app/public/<span class="nv">$PROJECT_PREFIX</span>.js
-  <span class="nb">echo</span> <span class="s2">&quot;/*Generated by https://github.com/todoubled/harness*/&quot;</span>|cat - ./app/public/<span class="nv">$PROJECT_PREFIX</span>.css &gt; /tmp/out <span class="o">&amp;&amp;</span> mv /tmp/out ./app/public/<span class="nv">$PROJECT_PREFIX</span>.css
+  <span class="nb">echo</span> <span class="s2">&quot;/*Generated by https://github.com/todoubled/harness*/&quot;</span>|cat - ./app/public/<span class="nv">$PROJECT_PREFIX</span>.css &gt; /tmp/out <span class="o">&amp;&amp;</span> mv /tmp/out ./app/public/<span class="nv">$PROJECT_PREFIX</span>.css</div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makeserver"><code>make server</code></h4>
 
-<span class="nf">server </span><span class="o">:</span>
-  ./harness/env.sh coffee harness/start development-server
+<ul>
+<li>Primary development task</li>
+<li>Start up a file watcher to run <code>make build</code> each time a source file changes.</li>
+<li>Start up a web server to respond to mock API requests at <code>localhost:8080</code>.</li>
+<li>Start up a <code>livereload</code> instance to refresh the browser each time a file changes (Chrome extension required).</li>
+</ul></div></div><div class="code"><div class="wrapper"><span class="nf">server </span><span class="o">:</span>
+  ./harness/env.sh coffee harness/start development-server</div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="maketest"><code>make test</code></h4>
 
-<span class="nf">test </span><span class="o">:</span>
+<ul>
+<li>Create a fresh build</li>
+<li>Start up a testem instance that reruns all tests each time a source or test file changes.</li>
+<li>Tests are run automatically in all browsers currently opened to <code>localhost:7357</code>.</li>
+</ul></div></div><div class="code"><div class="wrapper"><span class="nf">test </span><span class="o">:</span>
   make build
-  ./harness/env.sh testem -f harness/testem.json app/test
+  ./harness/env.sh testem -f harness/testem.json app/test</div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makewatch"><code>make watch</code></h4>
 
-<span class="nf">watch </span><span class="o">:</span>
-  ./harness/env.sh watchman app/source <span class="s2">&quot;make build&quot;</span>
+<ul>
+<li>Tell <code>watchman</code> to watch <code>app/source</code> and run <code>make build</code> each time a file changes.</li>
+</ul></div></div><div class="code"><div class="wrapper"><span class="nf">watch </span><span class="o">:</span>
+  ./harness/env.sh watchman app/source <span class="s2">&quot;make build&quot;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makewebserver"><code>make webserver</code></h4>
 
-<span class="nf">webserver </span><span class="o">:</span>
+<ul>
+<li>Start up an express server at <code>localhost:8080</code>.</li>
+<li>Respond to mock API endpoints if defined in <code>app/routes.coffee</code>.</li>
+</ul></div></div><div class="code"><div class="wrapper"><span class="nf">webserver </span><span class="o">:</span>
   ./harness/env.sh coffee harness/server</div></div></div></div></body></html>
