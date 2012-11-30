@@ -238,18 +238,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Development Tasks",
             "slug": "development-tasks"
           },
-          "depth": 2,
-          "children": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 4,
-                "title": "'make deploy OUTPUT=/absolute/path/to/rails/app`",
-                "slug": "make-deploy-outputabsolutepathtorailsapp"
-              },
-              "depth": 4
-            }
-          ]
+          "depth": 2
         }
       ]
     }, {
