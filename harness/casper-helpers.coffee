@@ -3,6 +3,9 @@
 # - Convenience methods for reading cookie values and URL fragments.
 # - Cookie and `window.location.hash` cleanup before and after each test to avoid pollution.
 #
+# ---
+
+
 casper.readCookie = (page, key) ->
   # Cookie object attributes:
   #
