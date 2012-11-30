@@ -311,27 +311,27 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             {
               "type": "heading",
               "data": {
-                "level": 5,
+                "level": 6,
                 "title": "Get just the value segment of the cookie.",
                 "slug": "get-just-the-value-segment-of-the-cookie"
               },
-              "depth": 5
+              "depth": 6
             }, {
               "type": "heading",
               "data": {
-                "level": 5,
+                "level": 6,
                 "title": "Clear cookies before the test run starts to avoid pollution.",
                 "slug": "clear-cookies-before-the-test-run-starts-to-avoid-pollution"
               },
-              "depth": 5
+              "depth": 6
             }, {
               "type": "heading",
               "data": {
-                "level": 5,
+                "level": 6,
                 "title": "Reset the URL hash after each test run completes to avoid pollution.",
                 "slug": "reset-the-url-hash-after-each-test-run-completes-to-avoid-pollution"
               },
-              "depth": 5
+              "depth": 6
             }
           ]
         }
