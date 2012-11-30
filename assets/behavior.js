@@ -375,7 +375,18 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Environment Variables",
             "slug": "environment-variables"
           },
-          "depth": 2
+          "depth": 2,
+          "children": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 6,
+                "title": "Configure scripts with custom paths and other settings.",
+                "slug": "configure-scripts-with-custom-paths-and-other-settings"
+              },
+              "depth": 6
+            }
+          ]
         }
       ]
     }, {
@@ -427,7 +438,18 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Process Manager",
             "slug": "process-manager"
           },
-          "depth": 3
+          "depth": 3,
+          "children": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 6,
+                "title": "Start multiple long running processes and kill all if one exits.",
+                "slug": "start-multiple-long-running-processes-and-kill-all-if-one-exits"
+              },
+              "depth": 6
+            }
+          ]
         }
       ]
     }

@@ -37,6 +37,8 @@
       <span class="nv">errorMsg = </span><span class="nx">err</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">errorMsg</span><span class="p">.</span><span class="nx">red</span><span class="p">.</span><span class="nx">inverse</span> <span class="nx">unless</span> <span class="nx">errorMsg</span><span class="p">.</span><span class="nx">match</span> <span class="s">&#39;is now called&#39;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h3 id="templates">Templates</h3>
 
+<p>(This is admittedly pretty ugly, but it's the best solution at the moment. Very open to other options without feature compromise.)</p>
+
 <p><code>source/templates/*.mustache</code> is piped into a <code>Templates</code> object that is exported by <code>node_modules/tmplates</code>.</p>
 
 <ul>
