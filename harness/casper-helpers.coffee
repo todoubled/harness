@@ -1,13 +1,22 @@
+# ## Casper.js Integration Test Helpers
+#
+# - Convenience methods for reading cookie values and URL fragments.
+# - Cookie and `window.location.hash` cleanup before and after each test to avoid pollution.
+#
 casper.readCookie = (page, key) ->
-  # cookie =
-  #   domain: 'localhost'
-  #   expires 'timestamp'
-  #   expiry: milliseconds
-  #   httponly: false
-  #   name: ''
-  #   path: '/'
-  #   secure: false
-  #   value: ''
+  # Cookie object attributes:
+  #
+  # ```
+  # domain: 'localhost'
+  # expires 'timestamp'
+  # expiry: milliseconds
+  # httponly: false
+  # name: ''
+  # path: '/'
+  # secure: false
+  # value: ''
+  # ```
+  #
   cookie = page.cookies[0]
   cookie[key]
 

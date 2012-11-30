@@ -67,14 +67,14 @@ buildTemplates = (next) ->
 
 
 #
-# ### Build Assets and Unit Tests
+# ### Assets and Unit Tests
 #
 # - Unit tests compile to `harness-tests.js`
 # - Helper and Integration files compile to `public/` with the same name as the source file.
 # - Main JS and CSS compile to `public/PROJECT_PREFIX.{js, css}`.
 #
 buildAssets = (next) ->
-  unitTests = shell "browserify ./app/test/unit/**/*.coffee -o app/harness-tests.js"
+  unitTests = shell 'browserify ./app/test/unit/**/*.coffee -o app/harness-tests.js'
   integrationJs = shell 'coffee -co app/public app/source/coffeescripts/integration.coffee'
   helperJs = shell 'coffee -co app/public app/source/coffeescripts/dev-helper.coffee'
   integrationStyles = shell "stylus #{stylusOptions} -I app/source/stylesheets/ -o app/public/ app/source/stylesheets/integration.styl"
