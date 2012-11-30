@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="en"><head><title>index</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="index"><meta name="groc-project-path" content="README.md"><meta name="groc-github-url" content="https://github.com/todoubled/todoubled"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/todoubled/todoubled/blob/master/README.md">README.md</a></div></div><div id="document"><div class="segment"><div class="comments"><div class="wrapper"><h1 id="harness">Harness</h1>
+
+<p>Tools for writing HTML, CSS, and JavaScript with unit and integration testing, dependency management, deployment and API mocks.</p>
+
+<p><code>harness</code> was created out of the need to develop JavaScript apps independently of the server stack that is used in production.
+Write an app with <code>harness</code> and deploy it to any host web app.
+<code>harness</code> apps have their own unit and integration test suite.</p>
+
+<h3 id="testing">Testing</h3>
+
+<p>Testing is covered on both a unit and integration level.</p>
+
+<h3 id="dependency-management">Dependency Management</h3>
+
+<p>Dependencies are managed with the excellent <a href="https://github.com/substack/node-browserify"><code>browserify</code></a>.</p>
+
+<h3 id="deployment">Deployment</h3>
+
+<p>Deployment is a bit different than the usual sense. <code>harness</code> can "deploy" to any directory on your local file system.
+This makes it very easy to deploy your latest build to another repo on your filesystem, like a Rails app for example.</p>
+
+<h3 id="api-mocks">API Mocks</h3>
+
+<p><code>harness</code> makes it really easy to test your UI against specific data sets returned from an API.
+You're free to hit actual remote endpoints if you want, but <code>harness</code> makes it very easy to save and reproduce edge-case API responses locally.
+API mocks also make the integration tests fast, because API calls are local to the <code>harness</code> server.</p>
+
+<hr />
+
+<p><code>harness</code> is a set of scripts and tasks for building JavaScript applications. It's meant to ease development of small client-side applications that can be embedded in larger server-side applications.</p>
+
+<p>The goal is to surpass the niceties of writing client-side code within the development harness of a server-side codebase (asset preprocessing, templating, testing, rapid integration, etc.),
+making it easy to <strong>work independently in a separate codebase</strong>.</p>
+
+<h4 id="input">Input</h4>
+
+<p>This setup allows you to work with the technologies you're used to and supports some common types of assets as input for the build system:</p>
+
+<ul>
+<li><code>.mustache</code> templates</li>
+<li><code>.styl</code> stylesheet modules</li>
+<li><code>.coffee</code> and <code>.js</code> modules</li>
+<li>images</li>
+</ul>
+
+<h3 id="output">Output</h3>
+
+<p>And it outputs optimized assets like you might expect:</p>
+
+<ul>
+<li>1 <code>.js</code> file</li>
+<li>1 <code>.css</code> file</li>
+<li>images</li>
+</ul>
+
+<h3 id="integration">Integration</h3>
+
+<p>Include the output assets in <code>public/</code> and create 2 new files for integration points with a server-side application:</p>
+
+<p><strong><code>.js</code> file for configuration and instantiation</strong>
+  - Allows configuration to be passed in from the server
+  - Discourages auto-instantiation</p>
+
+<p><strong><code>.css</code> file for image and font rules and any necessary style overrides</strong>
+  - Allows image and font assets to be served up via the server caching strategies
+  - Smooths out style differences post-integration</p>
+
+<h2 id="features">Features</h2>
+
+<p><strong>Auto-running unit tests in all browsers with <a href="http://pivotal.github.com/jasmine/"><code>jasmine</code></a> and <a href="https://github.com/airportyh/testem"><code>testem</code></a></strong>
+  - Unit tests are auto-run in any browser currently opened to <code>localhost:7357</code> every time a source or test file changes</p>
+
+<p><strong>Headless integration tests in Webkit with <a href="http://casperjs.org/"><code>casperjs</code></a></strong>
+  - Integration tests are run every time a source or test file changes</p>
+
+<p><strong>Documentation with <a href="https://github.com/nevir/groc"><code>groc</code></a></strong>
+  - Inline comments with markdown are parsed and displayed as HTML documentation</p>
+
+<p><strong>Browser auto-refresh with <a href="https://github.com/livereload/livereload-extensions"><code>live-reload</code></a></strong>
+  - Page is refreshed in any browser currently opened to <code>localhost:8080</code> every time a source file changes</p>
+
+<p><strong>Dependency management with <a href="https://github.com/substack/node-browserify"><code>browserify</code></a></strong>
+  - Modularize, prevent global leakage, and control module dependencies</p>
+
+<p><strong>I18n (build for each locale) with <a href="https://github.com/SlexAxton/Jed"><code>jed</code></a></strong>
+  - Suboptimal. Currently requires a build for each locale</p>
+
+<p><strong>Endpoint mocks with <a href="http://expressjs.com/"><code>express</code></a></strong>
+  - Mock out server endpoints with sample responses that mimic production</p>
+
+<p><strong>Deployment to filesystem</strong>
+  - <code>make deploy</code> accepts an <code>OUTPUT</code> variable to <code>cp</code> the output assets to another codebase on the filesystem</p>
+
+<p><strong>Support for various versions of dependencies with query string parameters</strong>
+  - Test the app against new and old versions of Backbone or jQuery during development with query string parameters</p>
+
+<h2 id="collateral-benefits">Collateral Benefits</h2>
+
+<p><strong>App/Platform independent</strong>
+  - Embeddable for any app in any country on any platform, providing the configuration and endpoints are defined</p>
+
+<p><strong>Runtime dependency independent</strong>
+  - Use any dependencies you want -- backbone.js, ember.js or fuckit.js</p>
+
+<p><strong>Clear and defined integration points</strong>
+  - Forces upfront thought to define the boundaries and interfaces for client-side code</p>
+
+<p><strong>Less global impact</strong>
+  - Reduce the reliance on super objects</p>
+
+<p><strong>Fast and transparent tests</strong>
+  - Run automatically on every file change so test setup is painless
+  - Early detection of regressions</p>
+
+<p><strong><a href="http://scottchacon.com/2011/08/31/github-flow.html">Github Flow</a> compatible</strong>
+  - Pull Requests, implementation discussion and accountable code reviews</p>
+
+<p><strong>Developer happiness</strong>
+  - Fewer concerns and with the grain
+  - Familiar and non-hostile tools</p>
+
+<h1 id="dependencies">Dependencies</h1>
+
+<ul>
+<li>gcc (install via Xcode)</li>
+<li><a href="http://nodejs.org/dist/v0.8.8/node-v0.8.8.pkg">node.js 0.8.8+</a></li>
+<li>Pygments: <code>sudo easy_install pygments</code></li>
+<li>CasperJS: <code>brew install casperjs</code></li>
+</ul>
+
+<p><code>make install</code> to install dependencies after a fresh clone.</p>
+
+<h2 id="workflow">Workflow</h2>
+
+<p><code>make server</code> starts file watchers for <code>src/</code> and <code>/test</code> and a server at <code>http://localhost:8080</code> for development.</p>
+
+<p><code>make test</code> to run the tests at <code>http://localhost:7357</code> in all open browsers every time a source or test file is changed.</p>
+
+<p><code>make itest</code> to run the integration tests every time a source or test file is changed.</p>
+
+<p><code>make deploy OUTPUT=/path/to/www</code> to make a build and <code>cp public/prefix*</code> a directory of your choosing.</p>
+
+<hr />
+
+<h4 id="todo">TODO</h4>
+
+<ul>
+<li>Image spriting</li>
+<li>Configurable locale dictionaries</li>
+</ul></div></div></div></div></body></html>

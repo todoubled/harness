@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="en"><head><title>casper-helpers</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="casper-helpers"><meta name="groc-project-path" content="harness/casper-helpers.coffee"><meta name="groc-github-url" content="https://github.com/todoubled/todoubled"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/todoubled/todoubled/blob/master/harness/casper-helpers.coffee">harness/casper-helpers.coffee</a></div></div><div id="document"><div class="segment"><div class="code"><div class="wrapper"><span class="nv">casper.readCookie = </span><span class="nf">(page, key) -&gt;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>cookie =
+  domain: 'localhost'
+  expires 'timestamp'
+  expiry: milliseconds
+  httponly: false
+  name: ''
+  path: '/'
+  secure: false
+  value: ''</p></div></div><div class="code"><div class="wrapper">  <span class="nv">cookie = </span><span class="nx">page</span><span class="p">.</span><span class="nx">cookies</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="nx">cookie</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span>
+
+
+<span class="nv">casper.decodeResourceUrl = </span><span class="nf">(resource, division, dealTypes) -&gt;</span>
+  <span class="nv">url = </span><span class="nb">decodeURIComponent</span> <span class="nx">resource</span><span class="p">.</span><span class="nx">url</span>
+  <span class="k">return</span> <span class="kc">false</span> <span class="nx">unless</span> <span class="nx">url</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">division</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">url</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">dealTypes</span><span class="p">)</span>
+  <span class="kc">true</span>
+
+
+<span class="nv">casper.getCookieValue = </span><span class="nf">(page) -&gt;</span> <span class="nb">decodeURIComponent</span><span class="p">(</span><span class="nx">@readCookie</span><span class="p">(</span><span class="nx">page</span><span class="p">,</span> <span class="s">&#39;value&#39;</span><span class="p">)).</span><span class="nx">split</span> <span class="s">&#39;|&#39;</span>
+<span class="nx">casper</span><span class="p">.</span><span class="kc">on</span> <span class="s">&#39;run.start&#39;</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="nx">@page</span><span class="p">.</span><span class="nx">clearCookies</span><span class="p">()</span>
+<span class="nx">casper</span><span class="p">.</span><span class="kc">on</span> <span class="s">&#39;run.complete&#39;</span><span class="p">,</span> <span class="o">-&gt;</span> <span class="nx">@evaluate</span> <span class="o">-&gt;</span> <span class="nb">window</span><span class="p">.</span><span class="nv">location.hash = </span><span class="s">&#39;&#39;</span></div></div></div></div></body></html>
