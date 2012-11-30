@@ -43,6 +43,8 @@ handleStderr = (processes) ->
 #
 # ### Templates
 #
+# (This is admittedly pretty ugly, but it's the best solution at the moment. Very open to other options without feature compromise.)
+#
 # `source/templates/*.mustache` is piped into a `Templates` object that is exported by `node_modules/tmplates`.
 #
 # - Accessible via `Templates = require('tmplates');`

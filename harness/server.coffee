@@ -1,7 +1,7 @@
 #
 # ## Server
 #
-# Mock API endpoints and serve static assets in `app/public`.
+# ###### Mock API endpoints and serve static assets in `app/public`.
 #
 # - Define custom routes with `routesPath` for API endpoints.
 # - Easy to mock edge-case result sets and fast, offline integration tests.

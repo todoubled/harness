@@ -9,7 +9,7 @@
 #
 # #### `make deploy OUTPUT=/absolute/path/to/rails/app`
 #
-# - "Deploy" in the sense of copying built assets into another local app repository
+# "Deploy" in the sense of copying built assets into another local app repository
 #
 deploy :
 	make release

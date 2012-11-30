@@ -1,6 +1,6 @@
 # ### Process Manager
 #
-# Run multiple long running processes and kill all if one exits.
+# ###### Start multiple long running processes and kill all if one exits.
 #
 cp = require 'child_process'
 fs = require 'fs'
