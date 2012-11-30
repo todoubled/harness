@@ -1,18 +1,51 @@
+#
+# ## Development Tasks
+#
+
 .PHONY: test docs
 
+#
+# #### `make build`
+#
+# - compile HTML templates, CoffeeScript and Stylus files into 1 `.js` and 1 `.css` file.
+#
 build :
 	./harness/env.sh coffee harness/build
 
+
+#
+# #### 'make deploy OUTPUT=/absolute/path/to/rails/app`
+#
+# - "Deploy" in the sense of copying built assets into another local app repository
+#
 deploy :
 	make release
 	./harness/env.sh coffee harness/deploy
 
+#
+# #### `make docs`
+#
+# Generate documentation from inline comments in the source CoffeeScript files.
+#
 docs :
 	./harness/env.sh groc -e "./node_modules/**/*" "./**/*.coffee" README.md
 
+#
+# #### `make install`
+#
+# Install all npm dependencies.
+#
 install :
 	./harness/env.sh npm install
 
+#
+# #### `make itest`
+#
+# - Create a fresh build and start up the development server at `localhost:8081`.
+# - Use [casper.js](http://casperjs.org/) to browse the app headlessly and run integration tests.
+# - Simulates a clicking, form filling, and URL manipulation.
+# - Assert cookie values, URL values, and UI values.
+#
 itest :
 	make build
 	./harness/env.sh coffee harness/start integration-tests
