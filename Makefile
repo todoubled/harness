@@ -1,6 +1,8 @@
 #
 # ## Development Tasks
-
+#
+# Shortcuts to scripts with common configuration.
+#
 .PHONY: test docs
 
 

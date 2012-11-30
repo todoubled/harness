@@ -1,6 +1,15 @@
 #
 # # `make build`
 #
+# - Build templates from individual `.mustache` files into a requireable JavaScript object.
+# - Bundle unit tests with browserify.
+# - Compile integration script with CoffeeScript.
+# - Compile helper script with CoffeeScript.
+# - Bundle integration stylesheets with stylus.
+# - Bundle main stylesheets with stylus.
+# - Bundle main JavaScript with browserify.
+# - Build in series, with templates first because they're a dependency for the assets.
+#
 fs = require 'fs'
 browserify = require 'browserify'
 {spawn} = require 'child_process'
