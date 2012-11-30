@@ -1,6 +1,8 @@
 #
 # # `make deploy`
 #
+# Copy the built assets to another location locally (Mounted S3 bucket, Rails app, etc.).
+#
 # - Accepts an OUTPUT environment variable to deploy the built assets to a specific path on the local filesystem.
 # - Default output is the current working directory.
 #
