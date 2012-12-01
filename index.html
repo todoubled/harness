@@ -8,11 +8,12 @@ Write an app with <code>harness</code> and deploy it to any host web app.
 
 <h3 id="testing">Testing</h3>
 
-<p>Testing is covered on both a unit and integration level.</p>
+<p>Testing is covered on both a unit and integration level.
+Jasmine unit tests are run with <a href="https://github.com/airportyh/testem">testem</a> and integration tests are run with <a href="http://casperjs.org">casper.js</a>.</p>
 
 <h3 id="dependency-management">Dependency Management</h3>
 
-<p>Dependencies are managed with the excellent <a href="https://github.com/substack/node-browserify"><code>browserify</code></a>.</p>
+<p>Dependencies are managed with <a href="https://github.com/substack/node-browserify"><code>browserify</code></a>.</p>
 
 <h3 id="deployment">Deployment</h3>
 
@@ -122,13 +123,13 @@ making it easy to <strong>work independently in a separate codebase</strong>.</p
 <h1 id="dependencies">Dependencies</h1>
 
 <ul>
-<li>gcc (install via Xcode)</li>
+<li>gcc: install via Xcode</li>
 <li><a href="http://nodejs.org/dist/v0.8.8/node-v0.8.8.pkg">node.js 0.8.8+</a></li>
-<li>Pygments: <code>sudo easy_install pygments</code></li>
-<li>CasperJS: <code>brew install casperjs</code></li>
+<li>pygments: <code>sudo easy_install pygments</code></li>
+<li>casper.js: <code>brew install casperjs</code></li>
 </ul>
 
-<p><code>make install</code> to install dependencies after a fresh clone.</p>
+<h2 id="makeinstalltoinstalldependenciesafterafreshclone"><code>make install</code> to install dependencies after a fresh clone.</h2>
 
 <h2 id="workflow">Workflow</h2>
 
@@ -138,13 +139,4 @@ making it easy to <strong>work independently in a separate codebase</strong>.</p
 
 <p><code>make itest</code> to run the integration tests every time a source or test file is changed.</p>
 
-<p><code>make deploy OUTPUT=/path/to/www</code> to make a build and <code>cp public/prefix*</code> a directory of your choosing.</p>
-
-<hr />
-
-<h4 id="todo">TODO</h4>
-
-<ul>
-<li>Image spriting</li>
-<li>Configurable locale dictionaries</li>
-</ul></div></div></div></div></body></html>
+<h2 id="makedeployoutputpathtowwwtomakeabuildandcppublicprefixadirectoryofyourchoosing"><code>make deploy OUTPUT=/path/to/www</code> to make a build and <code>cp public/prefix*</code> a directory of your choosing.</h2></div></div></div></div></body></html>
