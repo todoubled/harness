@@ -18,13 +18,11 @@ app.use app.router
 app.use express.static pub
 app.use express.bodyParser()
 
-# If any custom routes are defined, use them.
+# Use any custom routes if they're defined.
 app.use require routesPath if fs.stat routesPath
 
 # Don't start `livereload` when the integration tests are running headlessly on `8081`.
-if process.env.PORT is 8080
-  refresher = livereload.createServer()
-  refresher.watch pub
+livereload.createServer().watch pub if process.env.PORT is 8080
 
 # Allow the integration test runner to run at a different port to avoid collision with `make server` on `8080`.
 app.listen process.env.PORT or 8080
