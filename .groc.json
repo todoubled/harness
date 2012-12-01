@@ -1,4 +1,4 @@
 {
-  "glob": ["Makefile", "README.md", "harness/*"],
+  "glob": ["Makefile", "README.md", "GUIDE.md", "harness/*"],
   "github": true
 }
