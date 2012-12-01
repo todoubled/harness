@@ -9,10 +9,11 @@ Write an app with `harness` and deploy it to any host web app.
 
 ### Testing
 Testing is covered on both a unit and integration level.
+Jasmine unit tests are run with [testem](https://github.com/airportyh/testem) and integration tests are run with [casper.js](http://casperjs.org).
 
 
 ### Dependency Management
-Dependencies are managed with the excellent [`browserify`](https://github.com/substack/node-browserify).
+Dependencies are managed with [`browserify`](https://github.com/substack/node-browserify).
 
 
 ### Deployment
@@ -115,12 +116,13 @@ __Developer happiness__
 
 
 # Dependencies
-- gcc (install via Xcode)
+- gcc: install via Xcode
 - [node.js 0.8.8+](http://nodejs.org/dist/v0.8.8/node-v0.8.8.pkg)
-- Pygments: `sudo easy_install pygments`
-- CasperJS: `brew install casperjs`
+- pygments: `sudo easy_install pygments`
+- casper.js: `brew install casperjs`
 
 `make install` to install dependencies after a fresh clone.
+---
 
 
 ## Workflow
@@ -131,9 +133,4 @@ __Developer happiness__
 `make itest` to run the integration tests every time a source or test file is changed.
 
 `make deploy OUTPUT=/path/to/www` to make a build and `cp public/prefix*` a directory of your choosing.
-
 ---
-
-#### TODO
-- Image spriting
-- Configurable locale dictionaries
