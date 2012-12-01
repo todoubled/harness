@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang="en"><head><title>GUIDE</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="GUIDE"><meta name="groc-project-path" content="GUIDE.md"><meta name="groc-github-url" content="https://github.com/todoubled/todoubled"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/todoubled/todoubled/blob/master/GUIDE.md">GUIDE.md</a></div></div><div id="document"><div class="segment"><div class="comments"><div class="wrapper"><h1 id="guide">Guide</h1>
+
+<p>A general tutorial on working with <code>javascript-harness</code>.</p>
+
+<p><code>make install</code> to setup dependencies.
+<code>make server</code> to start the development server and file watchers.
+<code>make test</code> to start the auto-test runner.</p>
+
+<h2 id="html">HTML</h2>
+
+<p>HTML should be stored in <code>.mustache</code> files kept in <code>src/templates</code>.
+To access the <code>.mustache</code> templates, <code>Templates = require 'tmplates'</code> in a module
+and <code>Templates 'mustache-file-name'</code> will return the contents of a given file name in <code>src/templates</code>.</p>
+
+<h4 id="implementation">Implementation</h4>
+
+<p><code>.mustache</code> files are read from the filesystem and stored in an object with the file names as keys and file contents as values.
+This object is written to a temporary <code>node_module</code> called <code>tmplates</code> that is created at build time.</p>
+
+<h2 id="css">CSS</h2>
+
+<p>Stylus is preferred but CSS can also be imported.</p>
+
+<h4 id="implementation">Implementation</h4>
+
+<p>Standard <code>stylus</code> CLI setup.</p>
+
+<h2 id="javascript">JavaScript</h2>
+
+<p>CoffeeScript is preferred but JavaScript can also be <code>require</code>'d. Modules should be written in the <a href="http://www.commonjs.org/">CommonJS</a> format.</p>
+
+<p>The general philosophy is to build apps by composing many small modules that represent one unit of functionality.
+Each module exports an object that represents the publicly accessible API that is available via <code>require</code>.
+Modules can add public methods to the API by exposing properties on top-level <code>this</code> in any given module file.</p>
+
+<pre><code># ui-callbacks.coffee
+{Search} = require '../wrappers/search.coffee'
+
+@onEnterSearch = (event) -&gt;
+  new Search {event}
+</code></pre>
+
+<pre><code># event-handlers.coffee
+{onEnterSearch} = require './ui-callbacks.coffee'
+
+$('#search').on 'click', onEnterSearch
+</code></pre>
+
+<h2 id="images-and-fonts">Images and Fonts</h2>
+
+<p>TODO: Add ENV var to define prefix
+For deployment ease, pick a common filename prefix for all assets.</p>
+
+<h4 id="implementation">Implementation</h4>
+
+<p>Standard <code>browserify</code> CLI setup.</p>
+
+<h2 id="tests">Tests</h2>
+
+<p>Code should have test coverage at the unit level and the integration/behavior level.</p>
+
+<h3 id="unit">Unit</h3>
+
+<p>Jasmine BDD syntax is used. Write method spies and test the unit-level plumbing of the code.</p>
+
+<h3 id="integration">Integration</h3>
+
+<p>Mocha Zombie tests are used to interact with the UI and test user flows.</p></div></div></div></div></body></html>
