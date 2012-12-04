@@ -578,15 +578,18 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Environment Variables",
             "slug": "environment-variables"
           },
-          "depth": 2
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 2,
-            "title": "###### Configure scripts with custom paths and other settings.",
-            "slug": "-configure-scripts-with-custom-paths-and-other-settings"
-          },
-          "depth": 2
+          "depth": 2,
+          "children": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 6,
+                "title": "Configure scripts with custom paths and other settings.",
+                "slug": "configure-scripts-with-custom-paths-and-other-settings"
+              },
+              "depth": 6
+            }
+          ]
         }
       ]
     }, {
