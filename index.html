@@ -10,6 +10,20 @@ With <code>harness</code> you can give the apps separate codebases and still hav
 
 <h1 id="features">Features</h1>
 
+<p><strong>Auto-compiling assets</strong></p>
+
+<ul>
+<li>Compiled on save</li>
+<li>CoffeeScript</li>
+<li>Stylus</li>
+</ul>
+
+<p><strong>Browser auto-refresh with <a href="https://github.com/livereload/livereload-extensions"><code>live-reload</code></a></strong></p>
+
+<ul>
+<li>Page is refreshed in any browser currently opened to <code>localhost:8080</code> every time a source file changes</li>
+</ul>
+
 <p><strong>Auto-running unit tests in all browsers with <a href="http://pivotal.github.com/jasmine/"><code>jasmine</code></a> and <a href="https://github.com/airportyh/testem"><code>testem</code></a></strong></p>
 
 <ul>
@@ -19,19 +33,13 @@ With <code>harness</code> you can give the apps separate codebases and still hav
 <p><strong>Headless integration tests in Webkit with <a href="http://casperjs.org/"><code>casperjs</code></a></strong></p>
 
 <ul>
-<li>Integration tests are run every time a source or test file changes</li>
+<li>Run integration tests regularly to assert common use cases and user flows</li>
 </ul>
 
 <p><strong>Documentation with <a href="https://github.com/nevir/groc"><code>groc</code></a></strong></p>
 
 <ul>
 <li>Inline comments with markdown are parsed and displayed as HTML documentation</li>
-</ul>
-
-<p><strong>Browser auto-refresh with <a href="https://github.com/livereload/livereload-extensions"><code>live-reload</code></a></strong></p>
-
-<ul>
-<li>Page is refreshed in any browser currently opened to <code>localhost:8080</code> every time a source file changes</li>
 </ul>
 
 <p><strong>Dependency management with <a href="https://github.com/substack/node-browserify"><code>browserify</code></a></strong></p>
@@ -52,18 +60,12 @@ With <code>harness</code> you can give the apps separate codebases and still hav
 <li><code>make deploy</code> accepts an <code>OUTPUT</code> variable to <code>cp</code> the output assets to another codebase on the filesystem</li>
 </ul>
 
-<p><strong>Support for various versions of dependencies with query string parameters</strong></p>
-
-<ul>
-<li>Test the app against new and old versions of Backbone or jQuery during development with query string parameters</li>
-</ul>
-
 <h2 id="collateral-benefits">Collateral Benefits</h2>
 
 <p><strong>App/Platform independent</strong></p>
 
 <ul>
-<li>Embeddable for any app in any country on any platform, providing the configuration and endpoints are defined</li>
+<li>Embeddable for any app in any country on any platform. Just define some configuration and endpoints.</li>
 </ul>
 
 <p><strong>Runtime dependency independent</strong></p>
