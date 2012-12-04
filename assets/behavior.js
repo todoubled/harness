@@ -13,7 +13,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "commentsOnly": true,
           "name": "Markdown"
         },
-        "sourcePath": "/Users/tlarsen/code/harness/README.md",
+        "sourcePath": "/Users/tlarsen/Desktop/harness/README.md",
         "projectPath": "README.md",
         "targetPath": "index",
         "firstHeader": {
@@ -212,7 +212,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "commentsOnly": true,
           "name": "Markdown"
         },
-        "sourcePath": "/Users/tlarsen/code/harness/GUIDE.md",
+        "sourcePath": "/Users/tlarsen/Desktop/harness/GUIDE.md",
         "projectPath": "GUIDE.md",
         "targetPath": "GUIDE",
         "firstHeader": {
@@ -427,7 +427,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "singleLineComment": ["#"],
           "name": "Make"
         },
-        "sourcePath": "/Users/tlarsen/code/harness/Makefile",
+        "sourcePath": "/Users/tlarsen/Desktop/harness/Makefile",
         "projectPath": "Makefile",
         "targetPath": "Makefile",
         "title": "Makefile"
@@ -453,7 +453,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "singleLineComment": ["#"],
           "name": "CoffeeScript"
         },
-        "sourcePath": "/Users/tlarsen/code/harness/harness/build.coffee",
+        "sourcePath": "/Users/tlarsen/Desktop/harness/harness/build.coffee",
         "projectPath": "harness/build.coffee",
         "targetPath": "build",
         "title": "build"
@@ -495,7 +495,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "singleLineComment": ["#"],
           "name": "CoffeeScript"
         },
-        "sourcePath": "/Users/tlarsen/code/harness/harness/casper-helpers.coffee",
+        "sourcePath": "/Users/tlarsen/Desktop/harness/harness/casper-helpers.coffee",
         "projectPath": "harness/casper-helpers.coffee",
         "targetPath": "casper-helpers",
         "title": "casper-helpers"
@@ -548,7 +548,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "singleLineComment": ["#"],
           "name": "CoffeeScript"
         },
-        "sourcePath": "/Users/tlarsen/code/harness/harness/deploy.coffee",
+        "sourcePath": "/Users/tlarsen/Desktop/harness/harness/deploy.coffee",
         "projectPath": "harness/deploy.coffee",
         "targetPath": "deploy",
         "title": "deploy"
@@ -564,7 +564,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "singleLineComment": ["#"],
           "name": "Shell"
         },
-        "sourcePath": "/Users/tlarsen/code/harness/harness/env.sh",
+        "sourcePath": "/Users/tlarsen/Desktop/harness/harness/env.sh",
         "projectPath": "harness/env.sh",
         "targetPath": "env",
         "title": "env"
@@ -578,18 +578,15 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Environment Variables",
             "slug": "environment-variables"
           },
-          "depth": 2,
-          "children": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 6,
-                "title": "Configure scripts with custom paths and other settings.",
-                "slug": "configure-scripts-with-custom-paths-and-other-settings"
-              },
-              "depth": 6
-            }
-          ]
+          "depth": 2
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 2,
+            "title": "###### Configure scripts with custom paths and other settings.",
+            "slug": "-configure-scripts-with-custom-paths-and-other-settings"
+          },
+          "depth": 2
         }
       ]
     }, {
@@ -601,7 +598,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "singleLineComment": ["#"],
           "name": "CoffeeScript"
         },
-        "sourcePath": "/Users/tlarsen/code/harness/harness/server.coffee",
+        "sourcePath": "/Users/tlarsen/Desktop/harness/harness/server.coffee",
         "projectPath": "harness/server.coffee",
         "targetPath": "server",
         "title": "server"
@@ -627,7 +624,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "singleLineComment": ["#"],
           "name": "CoffeeScript"
         },
-        "sourcePath": "/Users/tlarsen/code/harness/harness/start.coffee",
+        "sourcePath": "/Users/tlarsen/Desktop/harness/harness/start.coffee",
         "projectPath": "harness/start.coffee",
         "targetPath": "start",
         "title": "start"
