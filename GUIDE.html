@@ -1,10 +1,20 @@
 <!DOCTYPE html><html lang="en"><head><title>GUIDE</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="GUIDE"><meta name="groc-project-path" content="GUIDE.md"><meta name="groc-github-url" content="https://github.com/todoubled/todoubled"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/todoubled/todoubled/blob/master/GUIDE.md">GUIDE.md</a></div></div><div id="document"><div class="segment"><div class="comments"><div class="wrapper"><h1 id="guide">Guide</h1>
 
-<p>A general tutorial on working with <code>javascript-harness</code>.</p>
+<h6 id="ageneraltutorialonworkingwithharness">A general tutorial on working with <code>harness</code>.</h6>
 
-<p><code>make install</code> to setup dependencies.
-<code>make server</code> to start the development server and file watchers.
-<code>make test</code> to start the auto-test runner.</p>
+<p>Write HTML, CSS and JavaScript with Mustache, Stylus and CoffeeScript.</p>
+
+<hr />
+
+<p><code>make install</code> to setup dependencies.</p>
+
+<p><code>make server</code> to start the development server and file watchers.</p>
+
+<p><code>make test</code> to start the auto-test runner.</p>
+
+<h3 id="compilation">Compilation</h3>
+
+<p><code>harness</code> supports CoffeeScript and Stylus right now.</p>
 
 <h3 id="testing">Testing</h3>
 
@@ -27,11 +37,6 @@ You're free to hit actual remote endpoints if you want, but <code>harness</code>
 API mocks also make the integration tests fast, because API calls are local to the <code>harness</code> server.</p>
 
 <hr />
-
-<p><code>harness</code> is a set of scripts and tasks for building JavaScript applications. It's meant to ease development of small client-side applications that can be embedded in larger server-side applications.</p>
-
-<p>The goal is to surpass the niceties of writing client-side code within the development harness of a server-side codebase (asset preprocessing, templating, testing, rapid integration, etc.),
-making it easy to <strong>work independently in a separate codebase</strong>.</p>
 
 <h4 id="input">Input</h4>
 
@@ -108,21 +113,5 @@ $('#search').on 'click', onEnterSearch
 
 <h2 id="images-and-fonts">Images and Fonts</h2>
 
-<p>TODO: Add ENV var to define prefix
-For deployment ease, pick a common filename prefix for all assets.</p>
-
-<h4 id="implementation">Implementation</h4>
-
-<p>Standard <code>browserify</code> CLI setup.</p>
-
-<h2 id="tests">Tests</h2>
-
-<p>Code should have test coverage at the unit level and the integration/behavior level.</p>
-
-<h3 id="unit">Unit</h3>
-
-<p>Jasmine BDD syntax is used. Write method spies and test the unit-level plumbing of the code.</p>
-
-<h3 id="integration">Integration</h3>
-
-<p>Mocha Zombie tests are used to interact with the UI and test user flows.</p></div></div></div></div></body></html>
+<p>Define a <code>PROJECT_PREFIX</code> in <code>harness/env.sh</code> for deployment ease.
+Built assets will use this prefix so you should also prefix font and image filenames with the same <code>PROJECT_PREFIX</code>.</p></div></div></div></div></body></html>
