@@ -1,7 +1,7 @@
 #
 # ## Development Tasks
 #
-# Shortcuts to scripts with common configuration.
+# ###### Shortcuts to scripts with common configuration.
 #
 .PHONY: test docs
 
@@ -9,7 +9,7 @@
 #
 # #### `make deploy OUTPUT=/absolute/path/to/rails/app`
 #
-# "Deploy" in the sense of copying built assets into another local app repository
+# ###### "Deploy" in the sense of copying built assets into another local app repository
 #
 deploy :
 	make release
@@ -20,7 +20,7 @@ deploy :
 #
 # #### `make docs`
 #
-# Generate documentation from inline comments in the source CoffeeScript files.
+# ###### Generate documentation from inline comments in the source CoffeeScript files.
 #
 docs :
 	./harness/env.sh groc -e "./node_modules/**/*" "./**/*.coffee" README.md
@@ -30,7 +30,7 @@ docs :
 #
 # #### `make install`
 #
-# Install all npm dependencies.
+# ###### Install all npm dependencies.
 #
 install :
 	./harness/env.sh npm install
