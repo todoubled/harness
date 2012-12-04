@@ -1,10 +1,19 @@
 # Guide
 
-A general tutorial on working with `javascript-harness`.
+###### A general tutorial on working with `harness`.
+
+Write HTML, CSS and JavaScript with Mustache, Stylus and CoffeeScript.
+
+---
 
 `make install` to setup dependencies.
+
 `make server` to start the development server and file watchers.
+
 `make test` to start the auto-test runner.
+
+### Compilation
+`harness` supports CoffeeScript and Stylus right now.
 
 
 ### Testing
@@ -27,11 +36,6 @@ You're free to hit actual remote endpoints if you want, but `harness` makes it v
 API mocks also make the integration tests fast, because API calls are local to the `harness` server.
 
 ---
-
-`harness` is a set of scripts and tasks for building JavaScript applications. It's meant to ease development of small client-side applications that can be embedded in larger server-side applications.
-
-The goal is to surpass the niceties of writing client-side code within the development harness of a server-side codebase (asset preprocessing, templating, testing, rapid integration, etc.),
-making it easy to __work independently in a separate codebase__.
 
 
 #### Input
@@ -88,6 +92,7 @@ The general philosophy is to build apps by composing many small modules that rep
 Each module exports an object that represents the publicly accessible API that is available via `require`.
 Modules can add public methods to the API by exposing properties on top-level `this` in any given module file.
 
+
 ```
 # ui-callbacks.coffee
 {Search} = require '../wrappers/search.coffee'
@@ -104,19 +109,5 @@ $('#search').on 'click', onEnterSearch
 ```
 
 ## Images and Fonts
-TODO: Add ENV var to define prefix
-For deployment ease, pick a common filename prefix for all assets.
-
-
-#### Implementation
-Standard `browserify` CLI setup.
-
-
-## Tests
-Code should have test coverage at the unit level and the integration/behavior level.
-
-### Unit
-Jasmine BDD syntax is used. Write method spies and test the unit-level plumbing of the code.
-
-### Integration
-Mocha Zombie tests are used to interact with the UI and test user flows.
+Define a `PROJECT_PREFIX` in `harness/env.sh` for deployment ease.
+Built assets will use this prefix so you should also prefix font and image filenames with the same `PROJECT_PREFIX`.
