@@ -441,7 +441,42 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Development Tasks",
             "slug": "development-tasks"
           },
-          "depth": 2
+          "depth": 2,
+          "children": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 6,
+                "title": "Shortcuts to scripts with common configuration.",
+                "slug": "shortcuts-to-scripts-with-common-configuration"
+              },
+              "depth": 6
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 6,
+                "title": "\"Deploy\" in the sense of copying built assets into another local app repository",
+                "slug": "deploy-in-the-sense-of-copying-built-assets-into-another-local-app-repository"
+              },
+              "depth": 6
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 6,
+                "title": "Generate documentation from inline comments in the source CoffeeScript files.",
+                "slug": "generate-documentation-from-inline-comments-in-the-source-coffeescript-files"
+              },
+              "depth": 6
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 6,
+                "title": "Install all npm dependencies.",
+                "slug": "install-all-npm-dependencies"
+              },
+              "depth": 6
+            }
+          ]
         }
       ]
     }, {
@@ -483,7 +518,18 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Build Series",
             "slug": "build-series"
           },
-          "depth": 2
+          "depth": 2,
+          "children": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 6,
+                "title": "# Build templates first, then build assets that depend on those templates.",
+                "slug": "-build-templates-first-then-build-assets-that-depend-on-those-templates"
+              },
+              "depth": 6
+            }
+          ]
         }
       ]
     }, {
@@ -512,6 +558,14 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "depth": 2,
           "children": [
             {
+              "type": "heading",
+              "data": {
+                "level": 6,
+                "title": "Define convenience methods and prevent test pollution",
+                "slug": "define-convenience-methods-and-prevent-test-pollution"
+              },
+              "depth": 6
+            }, {
               "type": "heading",
               "data": {
                 "level": 6,
@@ -554,7 +608,17 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
         "title": "deploy"
       },
       "depth": 1,
-      "outline": []
+      "outline": [
+        {
+          "type": "heading",
+          "data": {
+            "level": 6,
+            "title": "Copy the built assets to another location locally (Mounted S3 bucket, Rails app, etc.).",
+            "slug": "copy-the-built-assets-to-another-location-locally-mounted-s3-bucket-rails-app-etc"
+          },
+          "depth": 6
+        }
+      ]
     }, {
       "type": "file",
       "data": {
