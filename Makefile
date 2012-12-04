@@ -1,7 +1,7 @@
 #
 # ## Development Tasks
 #
-# ###### Shortcuts to scripts with common configuration.
+# ##### Shortcuts to scripts with common configuration.
 #
 .PHONY: test docs
 
@@ -30,7 +30,7 @@ docs :
 #
 # #### `make install`
 #
-# ###### Install all npm dependencies.
+# ###### Install npm dependencies.
 #
 install :
 	./harness/env.sh npm install

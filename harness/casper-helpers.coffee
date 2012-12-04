@@ -1,6 +1,6 @@
 # ## Casper.js Integration Test Helpers
 #
-# ###### Define convenience methods and prevent test pollution
+# ###### Define convenience methods and prevent test pollution.
 #
 # ---
 #

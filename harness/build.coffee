@@ -91,7 +91,7 @@ buildAssets = (next) ->
 #
 # ## Build Series
 #
-# ####### Build templates first, then build assets that depend on those templates.
+# ###### Build templates first, then build assets that depend on those templates.
 #
 async.series [buildTemplates, buildAssets], (err) ->
   throw err if err
