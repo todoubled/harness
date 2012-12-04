@@ -9,6 +9,9 @@ task = process.argv[2]
 
 throw new Error("Array of processes not specified for #{task}") unless processes.hasOwnProperty task
 
+#
+# A task (passed in as an argument) can define an array of commands to run in `harness/processes.json`.
+#
 processes[task].forEach (proc) ->
   p = cp.spawn 'sh', ['-c', proc]
   p.stdout.setEncoding 'utf8'
