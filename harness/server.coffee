@@ -12,6 +12,7 @@ livereload = require 'livereload'
 root = require('path').normalize "#{__dirname}/.."
 pub = "#{root}/app/public"
 routesPath = "#{root}/app/routes.coffee"
+port = process.env.PORT || 8080
 
 app = express()
 app.use app.router
@@ -22,7 +23,7 @@ app.use express.bodyParser()
 app.use require routesPath if fs.stat routesPath
 
 # Don't start `livereload` when the integration tests are running headlessly on `8081`.
-livereload.createServer().watch pub if process.env.PORT is 8080
+livereload.createServer().watch pub if port is 8080
 
 # Allow the integration test runner to run at a different port to avoid collision with `make server` on `8080`.
-app.listen process.env.PORT or 8080
+app.listen port
