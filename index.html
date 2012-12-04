@@ -2,123 +2,96 @@
 
 <p>Tools for writing HTML, CSS, and JavaScript with unit and integration testing, dependency management, deployment and API mocks.</p>
 
-<p><code>harness</code> was created out of the need to develop JavaScript apps independently of the server stack that is used in production.
-Write an app with <code>harness</code> and deploy it to any host web app.
-<code>harness</code> apps have their own unit and integration test suite.</p>
+<p>The most common use case is a project that involves a Rails app and a Backbone.js app.
+Traditionally, both apps would be kept in the same codebase out of convenience but at the expense of portability and boundary.
+With <code>harness</code> you can give the apps separate codebases and still have the same test and front end preprocessing tools you'd expect with a Rails stack.</p>
 
-<h3 id="testing">Testing</h3>
+<p>Write an app with <code>harness</code> and deploy it to any host web app or even S3.</p>
 
-<p>Testing is covered on both a unit and integration level.
-Jasmine unit tests are run with <a href="https://github.com/airportyh/testem">testem</a> and integration tests are run with <a href="http://casperjs.org">casper.js</a>.</p>
+<h1 id="features">Features</h1>
 
-<h3 id="dependency-management">Dependency Management</h3>
-
-<p>Dependencies are managed with <a href="https://github.com/substack/node-browserify"><code>browserify</code></a>.</p>
-
-<h3 id="deployment">Deployment</h3>
-
-<p>Deployment is a bit different than the usual sense. <code>harness</code> can "deploy" to any directory on your local file system.
-This makes it very easy to deploy your latest build to another repo on your filesystem, like a Rails app for example.</p>
-
-<h3 id="api-mocks">API Mocks</h3>
-
-<p><code>harness</code> makes it really easy to test your UI against specific data sets returned from an API.
-You're free to hit actual remote endpoints if you want, but <code>harness</code> makes it very easy to save and reproduce edge-case API responses locally.
-API mocks also make the integration tests fast, because API calls are local to the <code>harness</code> server.</p>
-
-<hr />
-
-<p><code>harness</code> is a set of scripts and tasks for building JavaScript applications. It's meant to ease development of small client-side applications that can be embedded in larger server-side applications.</p>
-
-<p>The goal is to surpass the niceties of writing client-side code within the development harness of a server-side codebase (asset preprocessing, templating, testing, rapid integration, etc.),
-making it easy to <strong>work independently in a separate codebase</strong>.</p>
-
-<h4 id="input">Input</h4>
-
-<p>This setup allows you to work with the technologies you're used to and supports some common types of assets as input for the build system:</p>
+<p><strong>Auto-running unit tests in all browsers with <a href="http://pivotal.github.com/jasmine/"><code>jasmine</code></a> and <a href="https://github.com/airportyh/testem"><code>testem</code></a></strong></p>
 
 <ul>
-<li><code>.mustache</code> templates</li>
-<li><code>.styl</code> stylesheet modules</li>
-<li><code>.coffee</code> and <code>.js</code> modules</li>
-<li>images</li>
+<li>Unit tests are auto-run in any browser currently opened to <code>localhost:7357</code> every time a source or test file changes</li>
 </ul>
 
-<h3 id="output">Output</h3>
-
-<p>And it outputs optimized assets like you might expect:</p>
+<p><strong>Headless integration tests in Webkit with <a href="http://casperjs.org/"><code>casperjs</code></a></strong></p>
 
 <ul>
-<li>1 <code>.js</code> file</li>
-<li>1 <code>.css</code> file</li>
-<li>images</li>
+<li>Integration tests are run every time a source or test file changes</li>
 </ul>
 
-<h3 id="integration">Integration</h3>
+<p><strong>Documentation with <a href="https://github.com/nevir/groc"><code>groc</code></a></strong></p>
 
-<p>Include the output assets in <code>public/</code> and create 2 new files for integration points with a server-side application:</p>
+<ul>
+<li>Inline comments with markdown are parsed and displayed as HTML documentation</li>
+</ul>
 
-<p><strong><code>.js</code> file for configuration and instantiation</strong>
-  - Allows configuration to be passed in from the server
-  - Discourages auto-instantiation</p>
+<p><strong>Browser auto-refresh with <a href="https://github.com/livereload/livereload-extensions"><code>live-reload</code></a></strong></p>
 
-<p><strong><code>.css</code> file for image and font rules and any necessary style overrides</strong>
-  - Allows image and font assets to be served up via the server caching strategies
-  - Smooths out style differences post-integration</p>
+<ul>
+<li>Page is refreshed in any browser currently opened to <code>localhost:8080</code> every time a source file changes</li>
+</ul>
 
-<h2 id="features">Features</h2>
+<p><strong>Dependency management with <a href="https://github.com/substack/node-browserify"><code>browserify</code></a></strong></p>
 
-<p><strong>Auto-running unit tests in all browsers with <a href="http://pivotal.github.com/jasmine/"><code>jasmine</code></a> and <a href="https://github.com/airportyh/testem"><code>testem</code></a></strong>
-  - Unit tests are auto-run in any browser currently opened to <code>localhost:7357</code> every time a source or test file changes</p>
+<ul>
+<li>Modularize, prevent global leakage, and control module dependencies</li>
+</ul>
 
-<p><strong>Headless integration tests in Webkit with <a href="http://casperjs.org/"><code>casperjs</code></a></strong>
-  - Integration tests are run every time a source or test file changes</p>
+<p><strong>Endpoint mocks with <a href="http://expressjs.com/"><code>express</code></a></strong></p>
 
-<p><strong>Documentation with <a href="https://github.com/nevir/groc"><code>groc</code></a></strong>
-  - Inline comments with markdown are parsed and displayed as HTML documentation</p>
+<ul>
+<li>Mock out server endpoints with sample responses that mimic production</li>
+</ul>
 
-<p><strong>Browser auto-refresh with <a href="https://github.com/livereload/livereload-extensions"><code>live-reload</code></a></strong>
-  - Page is refreshed in any browser currently opened to <code>localhost:8080</code> every time a source file changes</p>
+<p><strong>Deployment to filesystem</strong></p>
 
-<p><strong>Dependency management with <a href="https://github.com/substack/node-browserify"><code>browserify</code></a></strong>
-  - Modularize, prevent global leakage, and control module dependencies</p>
+<ul>
+<li><code>make deploy</code> accepts an <code>OUTPUT</code> variable to <code>cp</code> the output assets to another codebase on the filesystem</li>
+</ul>
 
-<p><strong>I18n (build for each locale) with <a href="https://github.com/SlexAxton/Jed"><code>jed</code></a></strong>
-  - Suboptimal. Currently requires a build for each locale</p>
+<p><strong>Support for various versions of dependencies with query string parameters</strong></p>
 
-<p><strong>Endpoint mocks with <a href="http://expressjs.com/"><code>express</code></a></strong>
-  - Mock out server endpoints with sample responses that mimic production</p>
-
-<p><strong>Deployment to filesystem</strong>
-  - <code>make deploy</code> accepts an <code>OUTPUT</code> variable to <code>cp</code> the output assets to another codebase on the filesystem</p>
-
-<p><strong>Support for various versions of dependencies with query string parameters</strong>
-  - Test the app against new and old versions of Backbone or jQuery during development with query string parameters</p>
+<ul>
+<li>Test the app against new and old versions of Backbone or jQuery during development with query string parameters</li>
+</ul>
 
 <h2 id="collateral-benefits">Collateral Benefits</h2>
 
-<p><strong>App/Platform independent</strong>
-  - Embeddable for any app in any country on any platform, providing the configuration and endpoints are defined</p>
+<p><strong>App/Platform independent</strong></p>
 
-<p><strong>Runtime dependency independent</strong>
-  - Use any dependencies you want -- backbone.js, ember.js or fuckit.js</p>
+<ul>
+<li>Embeddable for any app in any country on any platform, providing the configuration and endpoints are defined</li>
+</ul>
 
-<p><strong>Clear and defined integration points</strong>
-  - Forces upfront thought to define the boundaries and interfaces for client-side code</p>
+<p><strong>Runtime dependency independent</strong></p>
 
-<p><strong>Less global impact</strong>
-  - Reduce the reliance on super objects</p>
+<ul>
+<li>Use any dependencies you want -- backbone.js, ember.js or fuckit.js</li>
+</ul>
 
-<p><strong>Fast and transparent tests</strong>
-  - Run automatically on every file change so test setup is painless
-  - Early detection of regressions</p>
+<p><strong>Clear and defined integration points</strong></p>
 
-<p><strong><a href="http://scottchacon.com/2011/08/31/github-flow.html">Github Flow</a> compatible</strong>
-  - Pull Requests, implementation discussion and accountable code reviews</p>
+<ul>
+<li>Forces upfront thought to define the boundaries and interfaces for client-side code</li>
+</ul>
 
-<p><strong>Developer happiness</strong>
-  - Fewer concerns and with the grain
-  - Familiar and non-hostile tools</p>
+<p><strong>Less global impact</strong></p>
+
+<ul>
+<li>Reduce the reliance on super objects</li>
+</ul>
+
+<p><strong>Fast and transparent tests</strong></p>
+
+<ul>
+<li>Run automatically on every file change so test setup is painless</li>
+<li>Early detection of regressions</li>
+</ul>
+
+<hr />
 
 <h1 id="dependencies">Dependencies</h1>
 
@@ -129,7 +102,9 @@ making it easy to <strong>work independently in a separate codebase</strong>.</p
 <li>casper.js: <code>brew install casperjs</code></li>
 </ul>
 
-<h2 id="makeinstalltoinstalldependenciesafterafreshclone"><code>make install</code> to install dependencies after a fresh clone.</h2>
+<p><code>make install</code> to install dependencies after a fresh clone.</p>
+
+<hr />
 
 <h2 id="workflow">Workflow</h2>
 
@@ -139,4 +114,4 @@ making it easy to <strong>work independently in a separate codebase</strong>.</p
 
 <p><code>make itest</code> to run the integration tests every time a source or test file is changed.</p>
 
-<h2 id="makedeployoutputpathtowwwtomakeabuildandcppublicprefixadirectoryofyourchoosing"><code>make deploy OUTPUT=/path/to/www</code> to make a build and <code>cp public/prefix*</code> a directory of your choosing.</h2></div></div></div></div></body></html>
+<p><code>make deploy OUTPUT=/path/to/www</code> to make a build and <code>cp public/prefix*</code> a directory of your choosing.</p></div></div></div></div></body></html>

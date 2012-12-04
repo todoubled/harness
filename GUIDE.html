@@ -6,6 +6,66 @@
 <code>make server</code> to start the development server and file watchers.
 <code>make test</code> to start the auto-test runner.</p>
 
+<h3 id="testing">Testing</h3>
+
+<p>Testing is covered on both a unit and integration level.
+Jasmine unit tests are run with <a href="https://github.com/airportyh/testem">testem</a> and integration tests are run with <a href="http://casperjs.org">casper.js</a>.</p>
+
+<h3 id="dependency-management">Dependency Management</h3>
+
+<p>Dependencies are managed with <a href="https://github.com/substack/node-browserify"><code>browserify</code></a>. App code should be broken down into small <a href="http://www.commonjs.org/">CommonJS</a> modules that are reusable and well tested.</p>
+
+<h3 id="deployment">Deployment</h3>
+
+<p>Deployment is a bit different than the usual sense. <code>harness</code> can "deploy" to any directory on your local file system.
+This makes it very easy to deploy your latest build to another repo on your filesystem, like a Rails app for example.</p>
+
+<h3 id="api-mocks">API Mocks</h3>
+
+<p><code>harness</code> makes it really easy to test your UI against specific data sets returned from an API.
+You're free to hit actual remote endpoints if you want, but <code>harness</code> makes it very easy to save and reproduce edge-case API responses locally.
+API mocks also make the integration tests fast, because API calls are local to the <code>harness</code> server.</p>
+
+<hr />
+
+<p><code>harness</code> is a set of scripts and tasks for building JavaScript applications. It's meant to ease development of small client-side applications that can be embedded in larger server-side applications.</p>
+
+<p>The goal is to surpass the niceties of writing client-side code within the development harness of a server-side codebase (asset preprocessing, templating, testing, rapid integration, etc.),
+making it easy to <strong>work independently in a separate codebase</strong>.</p>
+
+<h4 id="input">Input</h4>
+
+<p>This setup allows you to work with the technologies you're used to and supports some common types of assets as input for the build system:</p>
+
+<ul>
+<li><code>.mustache</code> templates</li>
+<li><code>.styl</code> stylesheet modules</li>
+<li><code>.coffee</code> and <code>.js</code> modules</li>
+<li>images</li>
+</ul>
+
+<h3 id="output">Output</h3>
+
+<p>And it outputs optimized assets like you might expect:</p>
+
+<ul>
+<li>1 <code>.js</code> file</li>
+<li>1 <code>.css</code> file</li>
+<li>images</li>
+</ul>
+
+<h3 id="integration">Integration</h3>
+
+<p>Include the output assets in <code>public/</code> and create 2 new files for integration points with a server-side application:</p>
+
+<p><strong><code>.js</code> file for configuration and instantiation</strong>
+  - Allows configuration to be passed in from the server
+  - Discourages auto-instantiation</p>
+
+<p><strong><code>.css</code> file for image and font rules and any necessary style overrides</strong>
+  - Allows image and font assets to be served up via the server caching strategies
+  - Smooths out style differences post-integration</p>
+
 <h2 id="html">HTML</h2>
 
 <p>HTML should be stored in <code>.mustache</code> files kept in <code>src/templates</code>.

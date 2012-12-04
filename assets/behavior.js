@@ -24,6 +24,71 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "slug": "harness",
             "isFileHeader": true
           },
+          "depth": 1
+        },
+        "title": "Harness"
+      },
+      "depth": 1,
+      "outline": [
+        {
+          "type": "heading",
+          "data": {
+            "level": 1,
+            "title": "Features",
+            "slug": "features"
+          },
+          "depth": 1,
+          "children": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "Collateral Benefits",
+                "slug": "collateral-benefits"
+              },
+              "depth": 2
+            }
+          ]
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 1,
+            "title": "Dependencies",
+            "slug": "dependencies"
+          },
+          "depth": 1,
+          "children": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 2,
+                "title": "Workflow",
+                "slug": "workflow"
+              },
+              "depth": 2
+            }
+          ]
+        }
+      ]
+    }, {
+      "type": "file",
+      "data": {
+        "language": {
+          "nameMatchers": [".md"],
+          "commentsOnly": true,
+          "name": "Markdown"
+        },
+        "sourcePath": "/Users/tlarsen/Desktop/harness/GUIDE.md",
+        "projectPath": "GUIDE.md",
+        "targetPath": "GUIDE",
+        "firstHeader": {
+          "type": "heading",
+          "data": {
+            "level": 1,
+            "title": "Guide",
+            "slug": "guide",
+            "isFileHeader": true
+          },
           "depth": 1,
           "children": [
             {
@@ -86,146 +151,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               },
               "depth": 3
             }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Features",
-                "slug": "features"
-              },
-              "depth": 2
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Collateral Benefits",
-                "slug": "collateral-benefits"
-              },
-              "depth": 2
-            }
-          ]
-        },
-        "title": "Harness"
-      },
-      "depth": 1,
-      "outline": [
-        {
-          "type": "heading",
-          "data": {
-            "level": 3,
-            "title": "Testing",
-            "slug": "testing"
-          },
-          "depth": 3
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 3,
-            "title": "Dependency Management",
-            "slug": "dependency-management"
-          },
-          "depth": 3
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 3,
-            "title": "Deployment",
-            "slug": "deployment"
-          },
-          "depth": 3
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 3,
-            "title": "API Mocks",
-            "slug": "api-mocks"
-          },
-          "depth": 3,
-          "children": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 4,
-                "title": "Input",
-                "slug": "input"
-              },
-              "depth": 4
-            }
-          ]
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 3,
-            "title": "Output",
-            "slug": "output"
-          },
-          "depth": 3
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 3,
-            "title": "Integration",
-            "slug": "integration"
-          },
-          "depth": 3
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 2,
-            "title": "Features",
-            "slug": "features"
-          },
-          "depth": 2
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 2,
-            "title": "Collateral Benefits",
-            "slug": "collateral-benefits"
-          },
-          "depth": 2
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 1,
-            "title": "Dependencies",
-            "slug": "dependencies"
-          },
-          "depth": 1,
-          "children": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 2,
-                "title": "Workflow",
-                "slug": "workflow"
-              },
-              "depth": 2
-            }
-          ]
-        }
-      ]
-    }, {
-      "type": "file",
-      "data": {
-        "language": {
-          "nameMatchers": [".md"],
-          "commentsOnly": true,
-          "name": "Markdown"
-        },
-        "sourcePath": "/Users/tlarsen/Desktop/harness/GUIDE.md",
-        "projectPath": "GUIDE.md",
-        "targetPath": "GUIDE",
-        "firstHeader": {
-          "type": "heading",
-          "data": {
-            "level": 1,
-            "title": "Guide",
-            "slug": "guide",
-            "isFileHeader": true
-          },
-          "depth": 1,
-          "children": [
-            {
               "type": "heading",
               "data": {
                 "level": 2,
@@ -325,6 +250,65 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
       "depth": 1,
       "outline": [
         {
+          "type": "heading",
+          "data": {
+            "level": 3,
+            "title": "Testing",
+            "slug": "testing"
+          },
+          "depth": 3
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 3,
+            "title": "Dependency Management",
+            "slug": "dependency-management"
+          },
+          "depth": 3
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 3,
+            "title": "Deployment",
+            "slug": "deployment"
+          },
+          "depth": 3
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 3,
+            "title": "API Mocks",
+            "slug": "api-mocks"
+          },
+          "depth": 3,
+          "children": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 4,
+                "title": "Input",
+                "slug": "input"
+              },
+              "depth": 4
+            }
+          ]
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 3,
+            "title": "Output",
+            "slug": "output"
+          },
+          "depth": 3
+        }, {
+          "type": "heading",
+          "data": {
+            "level": 3,
+            "title": "Integration",
+            "slug": "integration"
+          },
+          "depth": 3
+        }, {
           "type": "heading",
           "data": {
             "level": 2,
