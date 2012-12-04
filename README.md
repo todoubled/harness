@@ -10,6 +10,18 @@ Write an app with `harness` and deploy it to any host web app or even S3.
 
 
 # Features
+__Auto-compiling assets__
+
+  - Compiled on save
+  - CoffeeScript
+  - Stylus
+
+
+__Browser auto-refresh with [`live-reload`](https://github.com/livereload/livereload-extensions)__
+
+  - Page is refreshed in any browser currently opened to `localhost:8080` every time a source file changes
+
+
 __Auto-running unit tests in all browsers with [`jasmine`](http://pivotal.github.com/jasmine/) and [`testem`](https://github.com/airportyh/testem)__
 
   - Unit tests are auto-run in any browser currently opened to `localhost:7357` every time a source or test file changes
@@ -17,17 +29,12 @@ __Auto-running unit tests in all browsers with [`jasmine`](http://pivotal.github
 
 __Headless integration tests in Webkit with [`casperjs`](http://casperjs.org/)__
 
-  - Integration tests are run every time a source or test file changes
+  - Run integration tests regularly to assert common use cases and user flows
 
 
 __Documentation with [`groc`](https://github.com/nevir/groc)__
 
   - Inline comments with markdown are parsed and displayed as HTML documentation
-
-
-__Browser auto-refresh with [`live-reload`](https://github.com/livereload/livereload-extensions)__
-
-  - Page is refreshed in any browser currently opened to `localhost:8080` every time a source file changes
 
 
 __Dependency management with [`browserify`](https://github.com/substack/node-browserify)__
@@ -45,16 +52,11 @@ __Deployment to filesystem__
   - `make deploy` accepts an `OUTPUT` variable to `cp` the output assets to another codebase on the filesystem
 
 
-__Support for various versions of dependencies with query string parameters__
-
-  - Test the app against new and old versions of Backbone or jQuery during development with query string parameters
-
-
 
 ## Collateral Benefits
 __App/Platform independent__
 
-  - Embeddable for any app in any country on any platform, providing the configuration and endpoints are defined
+  - Embeddable for any app in any country on any platform. Just define some configuration and endpoints.
 
 
 __Runtime dependency independent__
