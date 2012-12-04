@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><title>Makefile</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="Makefile"><meta name="groc-project-path" content="Makefile"><meta name="groc-github-url" content="https://github.com/todoubled/todoubled"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/todoubled/todoubled/blob/master/Makefile">Makefile</a></div></div><div id="document"><div class="segment"><div class="comments"><div class="wrapper"><h2 id="development-tasks">Development Tasks</h2>
 
-<h6 id="shortcuts-to-scripts-with-common-configuration">Shortcuts to scripts with common configuration.</h6></div></div><div class="code"><div class="wrapper"><span class="nf">.PHONY</span><span class="o">:</span> <span class="m">test docs</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makedeployoutputabsolutepathtorailsapp"><code>make deploy OUTPUT=/absolute/path/to/rails/app</code></h4>
+<h5 id="shortcuts-to-scripts-with-common-configuration">Shortcuts to scripts with common configuration.</h5></div></div><div class="code"><div class="wrapper"><span class="nf">.PHONY</span><span class="o">:</span> <span class="m">test docs</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makedeployoutputabsolutepathtorailsapp"><code>make deploy OUTPUT=/absolute/path/to/rails/app</code></h4>
 
 <h6 id="deploy-in-the-sense-of-copying-built-assets-into-another-local-app-repository">"Deploy" in the sense of copying built assets into another local app repository</h6></div></div><div class="code"><div class="wrapper"><span class="nf">deploy </span><span class="o">:</span>
   make release
@@ -9,7 +9,7 @@
 <h6 id="generate-documentation-from-inline-comments-in-the-source-coffeescript-files">Generate documentation from inline comments in the source CoffeeScript files.</h6></div></div><div class="code"><div class="wrapper"><span class="nf">docs </span><span class="o">:</span>
   ./harness/env.sh groc -e <span class="s2">&quot;./node_modules/**/*&quot;</span> <span class="s2">&quot;./**/*.coffee&quot;</span> README.md</div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makeinstall"><code>make install</code></h4>
 
-<h6 id="install-all-npm-dependencies">Install all npm dependencies.</h6></div></div><div class="code"><div class="wrapper"><span class="nf">install </span><span class="o">:</span>
+<h6 id="install-npm-dependencies">Install npm dependencies.</h6></div></div><div class="code"><div class="wrapper"><span class="nf">install </span><span class="o">:</span>
   ./harness/env.sh npm install</div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h4 id="makeitest"><code>make itest</code></h4>
 
 <ul>

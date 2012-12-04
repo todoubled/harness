@@ -446,35 +446,38 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             {
               "type": "heading",
               "data": {
-                "level": 6,
+                "level": 5,
                 "title": "Shortcuts to scripts with common configuration.",
                 "slug": "shortcuts-to-scripts-with-common-configuration"
               },
-              "depth": 6
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 6,
-                "title": "\"Deploy\" in the sense of copying built assets into another local app repository",
-                "slug": "deploy-in-the-sense-of-copying-built-assets-into-another-local-app-repository"
-              },
-              "depth": 6
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 6,
-                "title": "Generate documentation from inline comments in the source CoffeeScript files.",
-                "slug": "generate-documentation-from-inline-comments-in-the-source-coffeescript-files"
-              },
-              "depth": 6
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 6,
-                "title": "Install all npm dependencies.",
-                "slug": "install-all-npm-dependencies"
-              },
-              "depth": 6
+              "depth": 5,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 6,
+                    "title": "\"Deploy\" in the sense of copying built assets into another local app repository",
+                    "slug": "deploy-in-the-sense-of-copying-built-assets-into-another-local-app-repository"
+                  },
+                  "depth": 6
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 6,
+                    "title": "Generate documentation from inline comments in the source CoffeeScript files.",
+                    "slug": "generate-documentation-from-inline-comments-in-the-source-coffeescript-files"
+                  },
+                  "depth": 6
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 6,
+                    "title": "Install npm dependencies.",
+                    "slug": "install-npm-dependencies"
+                  },
+                  "depth": 6
+                }
+              ]
             }
           ]
         }
@@ -524,8 +527,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 6,
-                "title": "# Build templates first, then build assets that depend on those templates.",
-                "slug": "-build-templates-first-then-build-assets-that-depend-on-those-templates"
+                "title": "Build templates first, then build assets that depend on those templates.",
+                "slug": "build-templates-first-then-build-assets-that-depend-on-those-templates"
               },
               "depth": 6
             }
@@ -561,7 +564,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 6,
-                "title": "Define convenience methods and prevent test pollution",
+                "title": "Define convenience methods and prevent test pollution.",
                 "slug": "define-convenience-methods-and-prevent-test-pollution"
               },
               "depth": 6
