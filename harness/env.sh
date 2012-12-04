@@ -1,6 +1,7 @@
 # ## Environment Variables
 #
 # ###### Configure scripts with custom paths and other settings.
+#
 # ---
 #
 # - `PROJECT_PREFIX` is used for globbing on deployment and generating built asset filenames.
