@@ -94,7 +94,7 @@ __Fast and transparent tests__
 
 
 ## Workflow
-`make server` starts file watchers for `src/` and `/test` and a server at `http://localhost:8080` for development.
+`make server` starts file watchers for `app/source` and `app/test` and a server at `http://localhost:8080` for development.
 
 `make test` to run the tests at `http://localhost:7357` in all open browsers every time a source or test file is changed.
 
