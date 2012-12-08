@@ -6,7 +6,7 @@
 # ---
 #
 # - Define custom routes with `routesPath` for API endpoints.
-# - Easy to mock edge-case result sets and fast, offline integration tests.
+# - Mock edge-case result sets for fast, offline integration tests.
 #
 fs = require 'fs'
 express = require 'express'
