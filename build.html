@@ -14,13 +14,63 @@
 <span class="p">{</span><span class="nx">spawn</span><span class="p">}</span> <span class="o">=</span> <span class="nx">require</span> <span class="s">&#39;child_process&#39;</span>
 <span class="nv">mkdirp = </span><span class="nx">require</span> <span class="s">&#39;mkdirp&#39;</span>
 <span class="nv">async = </span><span class="nx">require</span> <span class="s">&#39;async&#39;</span>
-<span class="nv">root = </span><span class="nx">require</span><span class="p">(</span><span class="s">&#39;path&#39;</span><span class="p">).</span><span class="nx">normalize</span> <span class="s">&quot;</span><span class="si">#{</span><span class="nx">__dirname</span><span class="si">}</span><span class="s">/..&quot;</span>
 <span class="nv">colors = </span><span class="nx">require</span> <span class="s">&#39;colors&#39;</span>
 <span class="nv">shell = </span><span class="nf">(command) -&gt;</span> <span class="nx">spawn</span> <span class="s">&#39;sh&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;-c&#39;</span><span class="p">,</span> <span class="s">&quot;./harness/env.sh </span><span class="si">#{</span><span class="nx">command</span><span class="si">}</span><span class="s">&quot;</span><span class="p">]</span>
-<span class="nv">stylusOptions = </span><span class="s">&#39;--line-numbers&#39;</span>
+<span class="nv">stylusOptions = </span><span class="s">&#39;--line-numbers&#39;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>This build script expects the following directory structure:</p>
 
-<span class="nv">tmplates = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">root</span><span class="si">}</span><span class="s">/node_modules/tmplates&quot;</span>
-<span class="nv">templates = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">root</span><span class="si">}</span><span class="s">/app/source/templates&quot;</span>
+<pre><code>project-repository
+|- harness
+  |- build.coffee
+|- app
+  |- src
+    |- coffeescripts
+      |- views
+      |- models
+      |- collections
+      |- locales
+      |- index.coffee
+      |- helper.coffee
+      |- integration.coffee
+    |- stylesheets
+      |- project-prefix.styl
+      |- imported-module.styl
+    |- templates
+      |- layout.mustache
+      |- modal.mustache
+    |- vendor
+      |- jquery.third-party-plugin.js
+  |- test
+    |- unit
+      |- main-app-view.coffee
+      |- model.coffee
+    |- integration
+      |- common-user-behavior.coffee
+      |- cookied-user-behavior.coffee
+  |- fixtures
+    |- mocked-api-response.json
+    |- edge-case-response.json
+  |- public
+    |- index.html
+    |- image.png
+</code></pre>
+
+<p>You can customize the names of the <code>app</code> and <code>src</code> directories by setting <code>APP_DIR</code> and <code>SOURCE_DIR</code> in <code>harness/env.sh</code>.</p></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Directories</p></div></div><div class="code"><div class="wrapper"><span class="nv">root = </span><span class="nx">require</span><span class="p">(</span><span class="s">&#39;path&#39;</span><span class="p">).</span><span class="nx">normalize</span> <span class="s">&quot;</span><span class="si">#{</span><span class="nx">__dirname</span><span class="si">}</span><span class="s">/..&quot;</span>
+<span class="nv">appDir = </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">APP_DIR</span> <span class="o">||</span> <span class="s">&#39;app&#39;</span>
+<span class="nv">projectPrefix = </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PROJECT_PREFIX</span>
+<span class="nv">sourceDir = </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">SOURCE_DIR</span> <span class="o">||</span> <span class="s">&#39;source&#39;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Paths</p></div></div><div class="code"><div class="wrapper"><span class="nv">publicPath = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">appDir</span><span class="si">}</span><span class="s">/public&quot;</span>
+<span class="nv">templateModulePath = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">root</span><span class="si">}</span><span class="s">/node_modules/tmplates&quot;</span>
+<span class="nv">templatePath = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">root</span><span class="si">}</span><span class="s">/</span><span class="si">#{</span><span class="nx">appDir</span><span class="si">}</span><span class="s">/</span><span class="si">#{</span><span class="nx">sourceDir</span><span class="si">}</span><span class="s">/templates&quot;</span>
+<span class="nv">coffeescriptPath = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">appDir</span><span class="si">}</span><span class="s">/</span><span class="si">#{</span><span class="nx">sourceDir</span><span class="si">}</span><span class="s">/coffeescripts&quot;</span>
+<span class="nv">stylesheetPath = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">appDir</span><span class="si">}</span><span class="s">/</span><span class="si">#{</span><span class="nx">sourceDir</span><span class="si">}</span><span class="s">/stylesheets&quot;</span>
+<span class="nv">unitTestPath = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">appDir</span><span class="si">}</span><span class="s">/test/unit&quot;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Files</p></div></div><div class="code"><div class="wrapper"><span class="nv">bundledJSFile = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">publicPath</span><span class="si">}</span><span class="s">/</span><span class="si">#{</span><span class="nx">projectPrefix</span><span class="si">}</span><span class="s">.js&quot;</span>
+<span class="nv">devHelperCoffeeFile = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">coffeescriptPath</span><span class="si">}</span><span class="s">/dev-helper.coffee&quot;</span>
+<span class="nv">harnessTestFile = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">appDir</span><span class="si">}</span><span class="s">/harness-tests.js&quot;</span>
+<span class="nv">integrationCoffeeFile = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">coffeescriptPath</span><span class="si">}</span><span class="s">/integration.coffee&quot;</span>
+<span class="nv">integrationStylesheetFile = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">stylesheetPath</span><span class="si">}</span><span class="s">/integration.styl&quot;</span>
+<span class="nv">mainCoffeescriptFile = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">coffeescriptPath</span><span class="si">}</span><span class="s">/app/index.coffee&quot;</span>
+<span class="nv">mainStylesheetFile = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">stylesheetPath</span><span class="si">}</span><span class="s">/</span><span class="si">#{</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PROJECT_PREFIX</span><span class="si">}</span><span class="s">.styl&quot;</span>
+<span class="nv">mainTemplateFile = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">templateModulePath</span><span class="si">}</span><span class="s">/index.js&quot;</span>
+
 
 <span class="k">if</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">is</span> <span class="s">&#39;release&#39;</span>
   <span class="nv">stylusOptions = noLineNumbers = </span><span class="s">&#39;&#39;</span>
@@ -28,7 +78,7 @@
 
 <span class="nv">bundleMainJs = </span><span class="nf">(path) -&gt;</span>
   <span class="nv">b = </span><span class="nx">browserify</span> <span class="nv">entry: </span><span class="nx">path</span>
-  <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span> <span class="s">&quot;</span><span class="si">#{</span><span class="nx">root</span><span class="si">}</span><span class="s">/app/public/</span><span class="si">#{</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PROJECT_PREFIX</span><span class="si">}</span><span class="s">.js&quot;</span><span class="p">,</span> <span class="nx">b</span><span class="p">.</span><span class="nx">bundle</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/[^\S\n]+\n/g</span><span class="p">,</span> <span class="s">&#39;\n&#39;</span><span class="p">)</span>
+  <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span> <span class="nx">bundledJSFile</span><span class="p">,</span> <span class="nx">b</span><span class="p">.</span><span class="nx">bundle</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/[^\S\n]+\n/g</span><span class="p">,</span> <span class="s">&#39;\n&#39;</span><span class="p">)</span>
 
 
 <span class="nv">handleStderr = </span><span class="nf">(processes) -&gt;</span>
@@ -37,42 +87,40 @@
       <span class="nv">errorMsg = </span><span class="nx">err</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
       <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="nx">errorMsg</span><span class="p">.</span><span class="nx">red</span><span class="p">.</span><span class="nx">inverse</span> <span class="nx">unless</span> <span class="nx">errorMsg</span><span class="p">.</span><span class="nx">match</span> <span class="s">&#39;is now called&#39;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h3 id="templates">Templates</h3>
 
-<p>(This is admittedly pretty ugly, but it's the best solution at the moment. Very open to other options without feature compromise.)</p>
-
-<p><code>source/templates/*.mustache</code> is piped into a <code>Templates</code> object that is exported by <code>node_modules/tmplates</code>.</p>
+<p><code>src/templates/*.mustache</code> is piped into a <code>Templates</code> object that is exported by <code>node_modules/tmplates</code>.</p>
 
 <ul>
-<li>Accessible via <code>Templates = require('tmplates');</code></li>
-<li>Keys are <code>source/templates/*.mustache</code> file names</li>
-<li>Values are <code>source/templates/*.mustache</code> file contents</li>
+<li>Accessible via <code>tmplates = require('tmplates');</code></li>
+<li>Keys are <code>src/templates/*.mustache</code> file names</li>
+<li>Values are <code>src/templates/*.mustache</code> file contents</li>
 </ul></div></div><div class="code"><div class="wrapper"><span class="nv">buildTemplates = </span><span class="nf">(next) -&gt;</span>
-  <span class="nv">lastPosition = </span><span class="nx">fs</span><span class="p">.</span><span class="nx">readdirSync</span><span class="p">(</span><span class="nx">templates</span><span class="p">).</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span>
+  <span class="nv">lastPosition = </span><span class="nx">fs</span><span class="p">.</span><span class="nx">readdirSync</span><span class="p">(</span><span class="nx">templatePath</span><span class="p">).</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span>
 
-  <span class="nx">mkdirp</span> <span class="nx">tmplates</span><span class="p">,</span> <span class="nf">(err) -&gt;</span>
+  <span class="nx">mkdirp</span> <span class="nx">templateModulePath</span><span class="p">,</span> <span class="nf">(err) -&gt;</span>
     <span class="k">if</span> <span class="nx">err</span> <span class="k">then</span> <span class="k">throw</span> <span class="nx">err</span>
-    <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span> <span class="s">&quot;</span><span class="si">#{</span><span class="nx">tmplates</span><span class="si">}</span><span class="s">/package.json&quot;</span><span class="p">,</span> <span class="s">&#39;{\n  &quot;author&quot;: &quot;make build&quot;,\n  &quot;name&quot;: &quot;tmplates&quot;,\n  &quot;private&quot;: true,\n &quot;description&quot;: &quot;make build reads .mustache files into a requirable tmplates module&quot;,\n  &quot;version&quot;: &quot;0.0.1&quot;,\n  &quot;repository&quot;: {\n    &quot;url&quot;: &quot;&quot;\n  },\n &quot;main&quot;: &quot;./index&quot;,\n  &quot;devDependencies&quot;: {},\n  &quot;optionalDependencies&quot;: {},\n  &quot;engines&quot;: {\n    &quot;node&quot;: &quot;*&quot;\n  }\n}\n&#39;</span>
-    <span class="nx">fs</span><span class="p">.</span><span class="nx">appendFileSync</span> <span class="s">&quot;</span><span class="si">#{</span><span class="nx">tmplates</span><span class="si">}</span><span class="s">/index.js&quot;</span><span class="p">,</span> <span class="s">&#39;exports = this;this.Template = function(key){return unescape(Templates[key])};Templates = {&#39;</span>
+    <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span> <span class="s">&quot;</span><span class="si">#{</span><span class="nx">templateModulePath</span><span class="si">}</span><span class="s">/package.json&quot;</span><span class="p">,</span> <span class="s">&#39;{\n  &quot;author&quot;: &quot;make build&quot;,\n  &quot;name&quot;: &quot;tmplates&quot;,\n  &quot;private&quot;: true,\n &quot;description&quot;: &quot;make build reads .mustache files into a requirable tmplates module&quot;,\n  &quot;version&quot;: &quot;0.0.1&quot;,\n  &quot;repository&quot;: {\n    &quot;url&quot;: &quot;&quot;\n  },\n &quot;main&quot;: &quot;./index&quot;,\n  &quot;devDependencies&quot;: {},\n  &quot;optionalDependencies&quot;: {},\n  &quot;engines&quot;: {\n    &quot;node&quot;: &quot;*&quot;\n  }\n}\n&#39;</span>
+    <span class="nx">fs</span><span class="p">.</span><span class="nx">appendFileSync</span> <span class="nx">mainTemplateFile</span><span class="p">,</span> <span class="s">&#39;exports = this;this.Template = function(key){return unescape(Templates[key])};Templates = {&#39;</span>
 
-    <span class="nx">fs</span><span class="p">.</span><span class="nx">readdirSync</span><span class="p">(</span><span class="nx">templates</span><span class="p">).</span><span class="nx">forEach</span> <span class="nf">(file, index) -&gt;</span>
-      <span class="nx">fs</span><span class="p">.</span><span class="nx">appendFileSync</span> <span class="s">&quot;</span><span class="si">#{</span><span class="nx">tmplates</span><span class="si">}</span><span class="s">/index.js&quot;</span><span class="p">,</span> <span class="s">&quot;&#39;</span><span class="si">#{</span><span class="nx">file</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s">&#39;: &#39;</span><span class="si">#{</span><span class="nx">escape</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">templates</span><span class="si">}</span><span class="s">/</span><span class="si">#{</span><span class="nx">file</span><span class="si">}</span><span class="s">&quot;</span><span class="p">).</span><span class="nx">toString</span><span class="p">()</span><span class="si">}</span><span class="s">&#39;</span><span class="si">#{</span><span class="k">if</span> <span class="nx">index</span> <span class="o">is</span> <span class="nx">lastPosition</span> <span class="k">then</span> <span class="s">&#39;&#39;</span> <span class="k">else</span> <span class="s">&#39;,&#39;</span><span class="si">}</span><span class="s">&quot;</span>
+    <span class="nx">fs</span><span class="p">.</span><span class="nx">readdirSync</span><span class="p">(</span><span class="nx">templatePath</span><span class="p">).</span><span class="nx">forEach</span> <span class="nf">(file, index) -&gt;</span>
+      <span class="nx">fs</span><span class="p">.</span><span class="nx">appendFileSync</span> <span class="nx">mainTemplateFile</span><span class="p">,</span> <span class="s">&quot;&#39;</span><span class="si">#{</span><span class="nx">file</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s">&#39;: &#39;</span><span class="si">#{</span><span class="nx">escape</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">templatePath</span><span class="si">}</span><span class="s">/</span><span class="si">#{</span><span class="nx">file</span><span class="si">}</span><span class="s">&quot;</span><span class="p">).</span><span class="nx">toString</span><span class="p">()</span><span class="si">}</span><span class="s">&#39;</span><span class="si">#{</span><span class="k">if</span> <span class="nx">index</span> <span class="o">is</span> <span class="nx">lastPosition</span> <span class="k">then</span> <span class="s">&#39;&#39;</span> <span class="k">else</span> <span class="s">&#39;,&#39;</span><span class="si">}</span><span class="s">&quot;</span>
 
-    <span class="nx">fs</span><span class="p">.</span><span class="nx">appendFileSync</span> <span class="s">&quot;</span><span class="si">#{</span><span class="nx">tmplates</span><span class="si">}</span><span class="s">/index.js&quot;</span><span class="p">,</span> <span class="s">&#39;};&#39;</span>
-    <span class="nx">next</span> <span class="kc">null</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h3 id="assets-and-unit-tests">Assets and Unit Tests</h3>
+    <span class="nx">fs</span><span class="p">.</span><span class="nx">appendFileSync</span> <span class="nx">mainTemplateFile</span><span class="p">,</span> <span class="s">&#39;};&#39;</span>
+    <span class="nx">next</span> <span class="kc">null</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h3 id="build-assets-and-unit-tests">Build Assets and Unit Tests</h3>
 
 <ul>
 <li>Unit tests compile to <code>harness-tests.js</code></li>
 <li>Helper and Integration files compile to <code>public/</code> with the same name as the source file.</li>
 <li>Main JS and CSS compile to <code>public/PROJECT_PREFIX.{js, css}</code>.</li>
 </ul></div></div><div class="code"><div class="wrapper"><span class="nv">buildAssets = </span><span class="nf">(next) -&gt;</span>
-  <span class="nv">unitTests = </span><span class="nx">shell</span> <span class="s">&#39;browserify ./app/test/unit/**/*.coffee -o app/harness-tests.js&#39;</span>
-  <span class="nv">integrationJs = </span><span class="nx">shell</span> <span class="s">&#39;coffee -co app/public app/source/coffeescripts/integration.coffee&#39;</span>
-  <span class="nv">helperJs = </span><span class="nx">shell</span> <span class="s">&#39;coffee -co app/public app/source/coffeescripts/dev-helper.coffee&#39;</span>
-  <span class="nv">integrationStyles = </span><span class="nx">shell</span> <span class="s">&quot;stylus </span><span class="si">#{</span><span class="nx">stylusOptions</span><span class="si">}</span><span class="s"> -I app/source/stylesheets/ -o app/public/ app/source/stylesheets/integration.styl&quot;</span>
-  <span class="nv">mainStyles = </span><span class="nx">shell</span> <span class="s">&quot;stylus </span><span class="si">#{</span><span class="nx">stylusOptions</span><span class="si">}</span><span class="s"> -I app/source/stylesheets/ -o app/public/ app/source/stylesheets/</span><span class="si">#{</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PROJECT_PREFIX</span><span class="si">}</span><span class="s">.styl&quot;</span>
+  <span class="nv">unitTests = </span><span class="nx">shell</span> <span class="s">&quot;browserify ./</span><span class="si">#{</span><span class="nx">unitTestPath</span><span class="si">}</span><span class="s">/**/*.coffee -o </span><span class="si">#{</span><span class="nx">harnessTestFile</span><span class="si">}</span><span class="s">&quot;</span>
+  <span class="nv">integrationJs = </span><span class="nx">shell</span> <span class="s">&quot;coffee -co </span><span class="si">#{</span><span class="nx">publicPath</span><span class="si">}</span><span class="s"> </span><span class="si">#{</span><span class="nx">integrationCoffeeFile</span><span class="si">}</span><span class="s">&quot;</span>
+  <span class="nv">helperJs = </span><span class="nx">shell</span> <span class="s">&quot;coffee -co </span><span class="si">#{</span><span class="nx">publicPath</span><span class="si">}</span><span class="s"> </span><span class="si">#{</span><span class="nx">devHelperCoffeeFile</span><span class="si">}</span><span class="s">&quot;</span>
+  <span class="nv">integrationStyles = </span><span class="nx">shell</span> <span class="s">&quot;stylus </span><span class="si">#{</span><span class="nx">stylusOptions</span><span class="si">}</span><span class="s"> -I </span><span class="si">#{</span><span class="nx">stylesheetPath</span><span class="si">}</span><span class="s">/ -o </span><span class="si">#{</span><span class="nx">publicPath</span><span class="si">}</span><span class="s">/ </span><span class="si">#{</span><span class="nx">integrationStylesheetFile</span><span class="si">}</span><span class="s">&quot;</span>
+  <span class="nv">mainStyles = </span><span class="nx">shell</span> <span class="s">&quot;stylus </span><span class="si">#{</span><span class="nx">stylusOptions</span><span class="si">}</span><span class="s"> -I app/src/stylesheets/ -o </span><span class="si">#{</span><span class="nx">publicPath</span><span class="si">}</span><span class="s">/ </span><span class="si">#{</span><span class="nx">mainStylesheetFile</span><span class="si">}</span><span class="s">&quot;</span>
   <span class="nx">handleStderr</span> <span class="p">[</span><span class="nx">unitTests</span><span class="p">,</span> <span class="nx">integrationJs</span><span class="p">,</span> <span class="nx">helperJs</span><span class="p">,</span> <span class="nx">integrationStyles</span><span class="p">,</span> <span class="nx">mainStyles</span><span class="p">]</span>
-  <span class="nx">bundleMainJs</span> <span class="s">&#39;app/source/coffeescripts/app/index.coffee&#39;</span>
+  <span class="nx">bundleMainJs</span> <span class="nx">mainCoffeescriptFile</span>
   <span class="nx">next</span> <span class="kc">null</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><h2 id="build-series">Build Series</h2>
 
-<h6 id="build-templates-first-then-build-assets-that-depend-on-those-templates">Build templates first, then build assets that depend on those templates.</h6></div></div><div class="code"><div class="wrapper"><span class="nx">async</span><span class="p">.</span><span class="nx">series</span> <span class="p">[</span><span class="nx">buildTemplates</span><span class="p">,</span> <span class="nx">buildAssets</span><span class="p">],</span> <span class="nf">(err) -&gt;</span>
+<p>Build templatePath first, then build assets that depend on those templatePath.</p></div></div><div class="code"><div class="wrapper"><span class="nx">async</span><span class="p">.</span><span class="nx">series</span> <span class="p">[</span><span class="nx">buildTemplates</span><span class="p">,</span> <span class="nx">buildAssets</span><span class="p">],</span> <span class="nf">(err) -&gt;</span>
   <span class="k">throw</span> <span class="nx">err</span> <span class="k">if</span> <span class="nx">err</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&#39;Build to app/public complete.&#39;</span><span class="p">.</span><span class="nx">green</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div></div></body></html>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Build to </span><span class="si">#{</span><span class="nx">publicPath</span><span class="si">}</span><span class="s"> complete.&quot;</span><span class="p">.</span><span class="nx">green</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><hr /></div></div></div></div></body></html>

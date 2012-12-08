@@ -434,8 +434,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "type": "heading",
           "data": {
             "level": 3,
-            "title": "Assets and Unit Tests",
-            "slug": "assets-and-unit-tests"
+            "title": "Build Assets and Unit Tests",
+            "slug": "build-assets-and-unit-tests"
           },
           "depth": 3
         }, {
@@ -445,18 +445,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Build Series",
             "slug": "build-series"
           },
-          "depth": 2,
-          "children": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 6,
-                "title": "Build templates first, then build assets that depend on those templates.",
-                "slug": "build-templates-first-then-build-assets-that-depend-on-those-templates"
-              },
-              "depth": 6
-            }
-          ]
+          "depth": 2
         }
       ]
     }, {
@@ -561,28 +550,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
         "title": "env"
       },
       "depth": 1,
-      "outline": [
-        {
-          "type": "heading",
-          "data": {
-            "level": 2,
-            "title": "Environment Variables",
-            "slug": "environment-variables"
-          },
-          "depth": 2,
-          "children": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 6,
-                "title": "Configure scripts with custom paths and other settings.",
-                "slug": "configure-scripts-with-custom-paths-and-other-settings"
-              },
-              "depth": 6
-            }
-          ]
-        }
-      ]
+      "outline": []
     }, {
       "type": "file",
       "data": {
