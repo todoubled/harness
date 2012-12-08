@@ -1,6 +1,9 @@
 #
 # # `make build`
 #
+# This script builds assets for production and testing.
+# It resolves dependencies and turns many small source files into a few larger files.
+#
 # - Build templates from individual `.mustache` files into a requireable JavaScript object.
 # - Bundle unit tests with browserify.
 # - Compile integration script with CoffeeScript.
@@ -85,7 +88,7 @@ harnessTestFile = "#{appDir}/harness-tests.js"
 integrationCoffeeFile = "#{coffeescriptPath}/integration.coffee"
 integrationStylesheetFile = "#{stylesheetPath}/integration.styl"
 mainCoffeescriptFile = "#{coffeescriptPath}/app/index.coffee"
-mainStylesheetFile = "#{stylesheetPath}/#{process.env.PROJECT_PREFIX}.styl"
+mainStylesheetFile = "#{stylesheetPath}/#{projectPrefix}.styl"
 mainTemplateFile = "#{templateModulePath}/index.js"
 
 
