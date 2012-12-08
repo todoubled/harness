@@ -1,5 +1,8 @@
 <!DOCTYPE html><html lang="en"><head><title>build</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="build"><meta name="groc-project-path" content="harness/build.coffee"><meta name="groc-github-url" content="https://github.com/todoubled/todoubled"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/todoubled/todoubled/blob/master/harness/build.coffee">harness/build.coffee</a></div></div><div id="document"><div class="segment"><div class="comments"><div class="wrapper"><h1 id="makebuild"><code>make build</code></h1>
 
+<p>This script builds assets for production and testing.
+It resolves dependencies and turns many small source files into a few larger files.</p>
+
 <ul>
 <li>Build templates from individual <code>.mustache</code> files into a requireable JavaScript object.</li>
 <li>Bundle unit tests with browserify.</li>
@@ -68,7 +71,7 @@
 <span class="nv">integrationCoffeeFile = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">coffeescriptPath</span><span class="si">}</span><span class="s">/integration.coffee&quot;</span>
 <span class="nv">integrationStylesheetFile = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">stylesheetPath</span><span class="si">}</span><span class="s">/integration.styl&quot;</span>
 <span class="nv">mainCoffeescriptFile = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">coffeescriptPath</span><span class="si">}</span><span class="s">/app/index.coffee&quot;</span>
-<span class="nv">mainStylesheetFile = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">stylesheetPath</span><span class="si">}</span><span class="s">/</span><span class="si">#{</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PROJECT_PREFIX</span><span class="si">}</span><span class="s">.styl&quot;</span>
+<span class="nv">mainStylesheetFile = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">stylesheetPath</span><span class="si">}</span><span class="s">/</span><span class="si">#{</span><span class="nx">projectPrefix</span><span class="si">}</span><span class="s">.styl&quot;</span>
 <span class="nv">mainTemplateFile = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">templateModulePath</span><span class="si">}</span><span class="s">/index.js&quot;</span>
 
 
