@@ -23,28 +23,25 @@ Feel free to hack `harness/build.coffee` if you're not happy with the assumed di
      |- coffeescripts
        |- views
        |- models
-       |- collections
        |- index.coffee
        |- helper.coffee
        |- integration.coffee
      |- stylesheets
-       |- project-prefix.styl
-       |- imported-module.styl
+       |- hello-world.styl
+       |- headline.styl
      |- templates
        |- layout.mustache
-       |- modal.mustache
+       |- headline.mustache
      |- vendor
-       |- jquery.third-party-plugin.js
+       |- state-machine.js
    |- test
      |- unit
        |- main-app-view.coffee
        |- model.coffee
      |- integration
-       |- common-user-behavior.coffee
-       |- cookied-user-behavior.coffee
+       |- pageload-behavior.coffee
    |- fixtures
-     |- mocked-api-response.json
-     |- edge-case-response.json
+     |- headline-api-response.json
    |- public
      |- index.html
      |- image.png
@@ -63,13 +60,14 @@ Periodically, run `make itest` to run the headless integration tests and ensure 
 
 
 ## HTML
-HTML should be stored in `.mustache` files kept in `src/templates`.
-To access the `.mustache` templates, `Templates = require 'tmplates'` in a module
-and `Templates 'mustache-file-name'` will return the contents of a given file name in `src/templates`.
+HTML should be stored in `.mustache` files kept in `app/source/templates`.
+To use the templates in a CoffeeScript module, require `tmplates` to use the `Template` getter object to return the contents of a file in `app/source/templates`.
+```
+Template = require 'tmplates'
 
-#### Implementation
-`.mustache` files are read from the filesystem and stored in an object with the file names as keys and file contents as values.
-This object is written to a temporary `node_module` called `tmplates` that is created at build time.
+# Log the contents of `app/source/templates/hello-world.mustache`.
+console.log Template 'hello-world'
+```
 
 
 ## CSS
@@ -78,18 +76,21 @@ There are plans to support any preprocessing step in the future if you want to u
 
 
 ## JavaScript
-CoffeeScript is preferred but JavaScript can also be `require`'d. Modules should be small, reusable and written in the [CommonJS](http://www.commonjs.org/) format:
+CoffeeScript is preferred but JavaScript can also be `require`'d. Modules should be small, reusable and written in the [CommonJS](http://www.commonjs.org/) format.
+Here's some example usage of 2 different modules:
+
+`app/source/coffeescripts/ui-callbacks.coffee`
 
 ```
-# ui-callbacks.coffee
 {Search} = require '../wrappers/search.coffee'
 
 @onEnterSearch = (event) ->
   new Search {event}
 ```
 
+`app/source/coffeescripts/event-handlers.coffee`
+
 ```
-# event-handlers.coffee
 {onEnterSearch} = require './ui-callbacks.coffee'
 
 $('#search').on 'click', onEnterSearch
