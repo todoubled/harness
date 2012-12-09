@@ -98,18 +98,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "HTML",
                 "slug": "html"
               },
-              "depth": 2,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 4,
-                    "title": "Implementation",
-                    "slug": "implementation"
-                  },
-                  "depth": 4
-                }
-              ]
+              "depth": 2
             }, {
               "type": "heading",
               "data": {
@@ -172,18 +161,7 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "HTML",
             "slug": "html"
           },
-          "depth": 2,
-          "children": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 4,
-                "title": "Implementation",
-                "slug": "implementation"
-              },
-              "depth": 4
-            }
-          ]
+          "depth": 2
         }, {
           "type": "heading",
           "data": {
