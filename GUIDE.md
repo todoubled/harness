@@ -1,10 +1,15 @@
 # Guide
 
-###### A general tutorial on working with `harness`.
+###### A general tutorial for working with `harness`.
 
 Ship HTML, CSS and JavaScript by writing small Mustache, Stylus and CoffeeScript modules with unit and integration test coverage.
 
 ---
+
+
+First, run `make install` to setup dependencies.
+This will install all necessary node packages and tools.
+
 
 `harness` expects a certain directory structure, some of which is configurable via environment variables.
 Feel free to hack `harness/build.coffee` if you're not happy with the assumed directory structure:
@@ -47,16 +52,12 @@ Feel free to hack `harness/build.coffee` if you're not happy with the assumed di
 
 You can customize the names of the `app` and `src` directories by setting `APP_DIR` and `SOURCE_DIR` in `harness/env.sh`.
 
-### Workflow
+Assuming you've got the directory structure explained above, `make server` will start the development server and file watchers.
 
-`make install` to setup dependencies.
+In a separate shell, run `make test` to start the auto-test runner.
+Tests in `app/test/unit` will run every time a file in `app/test/unit` or `app/source` changes.
 
-`make server` to start the development server and file watchers.
-
-`make test` to start the auto-test runner.
-
-`make itest` to run the headless integration tests.
-
+Periodically, run `make itest` to run the headless integration tests and ensure your UI is behaving as expected.
 
 ---
 
