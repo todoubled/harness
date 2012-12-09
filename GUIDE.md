@@ -116,13 +116,17 @@ This makes it very easy to deploy your latest build to another local repo, like 
 ## Integration
 Since you're now developing outside of the production host app, the goal is to reproduce that environment as identically as possible.
 This involves mirroring the instantiation and style override files that need to exist in the host app repo as integration points.
+
 In your `harness` repo, instantiate and smooth out styles in `app/source/coffeescripts/integration.coffee` and `app/source/stylesheets/integration.styl`.
+
 When integrating with the host app repo, create 2 new files for integration points:
 
 __`PROJECT_PREFIX-integration.js` file for configuration and instantiation__
+
   - Allows configuration to be passed in from the server
   - Discourages auto-instantiation
 
 __`PROJECT_PREFIX-integration.css` file for image and font rules and any necessary style overrides__
+
   - Allows image and font assets to be served up via the production server-side caching strategies
   - Smooths out style differences post-integration
