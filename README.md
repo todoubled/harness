@@ -1,6 +1,7 @@
 # Harness
 
 Tools for writing HTML, CSS, and JavaScript with unit and integration testing, dependency management, deployment and API mocks.
+`harness` depends on node.js and is really just a set of scripts that run CLI commands.
 
 The most common use case is a project that involves a Rails app and a Backbone.js app.
 Traditionally, both apps would be kept in the same codebase out of convenience but at the expense of portability and boundary.
