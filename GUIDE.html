@@ -112,14 +112,22 @@ This makes it very easy to deploy your latest build to another local repo, like 
 <h2 id="integration">Integration</h2>
 
 <p>Since you're now developing outside of the production host app, the goal is to reproduce that environment as identically as possible.
-This involves mirroring the instantiation and style override files that need to exist in the host app repo as integration points.
-In your <code>harness</code> repo, instantiate and smooth out styles in <code>app/source/coffeescripts/integration.coffee</code> and <code>app/source/stylesheets/integration.styl</code>.
-When integrating with the host app repo, create 2 new files for integration points:</p>
+This involves mirroring the instantiation and style override files that need to exist in the host app repo as integration points.</p>
 
-<p><strong><code>PROJECT_PREFIX-integration.js</code> file for configuration and instantiation</strong>
-  - Allows configuration to be passed in from the server
-  - Discourages auto-instantiation</p>
+<p>In your <code>harness</code> repo, instantiate and smooth out styles in <code>app/source/coffeescripts/integration.coffee</code> and <code>app/source/stylesheets/integration.styl</code>.</p>
 
-<p><strong><code>PROJECT_PREFIX-integration.css</code> file for image and font rules and any necessary style overrides</strong>
-  - Allows image and font assets to be served up via the production server-side caching strategies
-  - Smooths out style differences post-integration</p></div></div></div></div></body></html>
+<p>When integrating with the host app repo, create 2 new files for integration points:</p>
+
+<p><strong><code>PROJECT_PREFIX-integration.js</code> file for configuration and instantiation</strong></p>
+
+<ul>
+<li>Allows configuration to be passed in from the server</li>
+<li>Discourages auto-instantiation</li>
+</ul>
+
+<p><strong><code>PROJECT_PREFIX-integration.css</code> file for image and font rules and any necessary style overrides</strong></p>
+
+<ul>
+<li>Allows image and font assets to be served up via the production server-side caching strategies</li>
+<li>Smooths out style differences post-integration</li>
+</ul></div></div></div></div></body></html>
