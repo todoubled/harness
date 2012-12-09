@@ -76,7 +76,7 @@ There are plans to support any preprocessing step in the future if you want to u
 <p>CoffeeScript is preferred but JavaScript can also be <code>require</code>'d. Modules should be small, reusable and written in the <a href="http://www.commonjs.org/">CommonJS</a> format.
 Here's some example usage of 2 different modules:</p>
 
-<p><code>app/source/coffeescripts/ui-callbacks.coffee</code></p>
+<p><code>app/source/coffeescripts/ui-callbacks.coffee</code>:</p>
 
 <pre><code>{Search} = require '../wrappers/search.coffee'
 
@@ -84,7 +84,7 @@ Here's some example usage of 2 different modules:</p>
   new Search {event}
 </code></pre>
 
-<p><code>app/source/coffeescripts/event-handlers.coffee</code></p>
+<p><code>app/source/coffeescripts/event-handlers.coffee</code>:</p>
 
 <pre><code>{onEnterSearch} = require './ui-callbacks.coffee'
 
@@ -111,12 +111,15 @@ This makes it very easy to deploy your latest build to another local repo, like 
 
 <h2 id="integration">Integration</h2>
 
-<p>Include the output assets in <code>public/</code> and create 2 new files for integration points with a server-side application:</p>
+<p>Since you're now developing outside of the production host app, the goal is to reproduce that environment as identically as possible.
+This involves mirroring the instantiation and style override files that need to exist in the host app repo as integration points.
+In your <code>harness</code> repo, instantiate and smooth out styles in <code>app/source/coffeescripts/integration.coffee</code> and <code>app/source/stylesheets/integration.styl</code>.
+When integrating with the host app repo, create 2 new files for integration points:</p>
 
-<p><strong><code>.js</code> file for configuration and instantiation</strong>
+<p><strong><code>PROJECT_PREFIX-integration.js</code> file for configuration and instantiation</strong>
   - Allows configuration to be passed in from the server
   - Discourages auto-instantiation</p>
 
-<p><strong><code>.css</code> file for image and font rules and any necessary style overrides</strong>
-  - Allows image and font assets to be served up via the server caching strategies
+<p><strong><code>PROJECT_PREFIX-integration.css</code> file for image and font rules and any necessary style overrides</strong>
+  - Allows image and font assets to be served up via the production server-side caching strategies
   - Smooths out style differences post-integration</p></div></div></div></div></body></html>
