@@ -18,7 +18,6 @@ Feel free to hack <code>harness/build.coffee</code> if you're not happy with the
        |- views
        |- models
        |- collections
-       |- locales
        |- index.coffee
        |- helper.coffee
        |- integration.coffee
@@ -59,31 +58,6 @@ Feel free to hack <code>harness/build.coffee</code> if you're not happy with the
 
 <hr />
 
-<h3 id="api-mocks">API Mocks</h3>
-
-<p><code>harness</code> makes it really easy to test your UI against specific data sets returned from an API.
-You're free to hit actual remote endpoints if you want, but <code>harness</code> makes it very easy to save and reproduce edge-case API responses locally.
-API mocks also make the integration tests fast, because API calls are local to the <code>harness</code> server.</p>
-
-<h3 id="deployment">Deployment</h3>
-
-<p>Deployment is a bit different than the usual sense. <code>harness</code> can "deploy" to any directory on your local file system.
-This makes it very easy to deploy your latest build to another repo on your filesystem, like a Rails app for example.</p>
-
-<h3 id="integration">Integration</h3>
-
-<p>Include the output assets in <code>public/</code> and create 2 new files for integration points with a server-side application:</p>
-
-<p><strong><code>.js</code> file for configuration and instantiation</strong>
-  - Allows configuration to be passed in from the server
-  - Discourages auto-instantiation</p>
-
-<p><strong><code>.css</code> file for image and font rules and any necessary style overrides</strong>
-  - Allows image and font assets to be served up via the server caching strategies
-  - Smooths out style differences post-integration</p>
-
-<hr />
-
 <h2 id="html">HTML</h2>
 
 <p>HTML should be stored in <code>.mustache</code> files kept in <code>src/templates</code>.
@@ -97,19 +71,12 @@ This object is written to a temporary <code>node_module</code> called <code>tmpl
 
 <h2 id="css">CSS</h2>
 
-<p>Stylus is preferred but CSS can also be imported.</p>
-
-<h4 id="implementation">Implementation</h4>
-
-<p>Standard <code>stylus</code> CLI setup.</p>
+<p>Stylus is preferred but CSS can also be imported.
+There are plans to support any preprocessing step in the future if you want to use Sass or Less.</p>
 
 <h2 id="javascript">JavaScript</h2>
 
-<p>CoffeeScript is preferred but JavaScript can also be <code>require</code>'d. Modules should be written in the <a href="http://www.commonjs.org/">CommonJS</a> format.</p>
-
-<p>The general philosophy is to build apps by composing many small modules that represent one unit of functionality.
-Each module exports an object that represents the publicly accessible API that is available via <code>require</code>.
-Modules can add public methods to the API by exposing properties on top-level <code>this</code> in any given module file.</p>
+<p>CoffeeScript is preferred but JavaScript can also be <code>require</code>'d. Modules should be small, reusable and written in the <a href="http://www.commonjs.org/">CommonJS</a> format:</p>
 
 <pre><code># ui-callbacks.coffee
 {Search} = require '../wrappers/search.coffee'
@@ -126,26 +93,30 @@ $('#search').on 'click', onEnterSearch
 
 <h2 id="images-and-fonts">Images and Fonts</h2>
 
-<p>Define a <code>PROJECT_PREFIX</code> in <code>harness/env.sh</code> for deployment ease.
-Built assets will use this prefix so you should also prefix font and image filenames with the same <code>PROJECT_PREFIX</code>.</p>
+<p>Prefix image and font filenames with the prefix defined by <code>PROJECT_PREFIX</code> in <code>harness/env.sh</code> for deployment ease.
+Built assets will also use this prefix so that <code>make deploy</code> can just glob <code>app/public/PROJECT_PREFIX*</code>.</p>
 
-<h4 id="input">Input</h4>
+<hr />
 
-<p>This setup allows you to work with the technologies you're used to and supports some common types of assets as input for the build system:</p>
+<h2 id="api-mocks">API Mocks</h2>
 
-<ul>
-<li><code>.mustache</code> templates</li>
-<li><code>.styl</code> stylesheet modules</li>
-<li><code>.coffee</code> and <code>.js</code> modules</li>
-<li>images</li>
-</ul>
+<p><code>harness</code> makes it really easy to test your UI against specific data sets returned from an API.
+You're free to hit actual remote endpoints if you want, but <code>harness</code> makes it very easy to save and reproduce edge-case API responses locally.
+API mocks also make the integration tests fast, because API calls are local to the <code>harness</code> server.</p>
 
-<h3 id="output">Output</h3>
+<h2 id="deployment">Deployment</h2>
 
-<p>And it outputs optimized assets like you might expect:</p>
+<p>Deployment is a bit different than in the usual sense. <code>harness</code> can "deploy" to any directory on your local file system.
+This makes it very easy to deploy your latest build to another local repo, like a Rails app for example.</p>
 
-<ul>
-<li>1 <code>.js</code> file</li>
-<li>1 <code>.css</code> file</li>
-<li>images</li>
-</ul></div></div></div></div></body></html>
+<h2 id="integration">Integration</h2>
+
+<p>Include the output assets in <code>public/</code> and create 2 new files for integration points with a server-side application:</p>
+
+<p><strong><code>.js</code> file for configuration and instantiation</strong>
+  - Allows configuration to be passed in from the server
+  - Discourages auto-instantiation</p>
+
+<p><strong><code>.css</code> file for image and font rules and any necessary style overrides</strong>
+  - Allows image and font assets to be served up via the server caching strategies
+  - Smooths out style differences post-integration</p></div></div></div></div></body></html>
