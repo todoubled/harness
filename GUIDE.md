@@ -2,7 +2,7 @@
 
 ###### A general tutorial on working with `harness`.
 
-Write HTML, CSS and JavaScript with Mustache, Stylus and CoffeeScript.
+Ship HTML, CSS and JavaScript by writing small Mustache, Stylus and CoffeeScript modules with unit and integration test coverage.
 
 ---
 
@@ -58,47 +58,18 @@ You can customize the names of the `app` and `src` directories by setting `APP_D
 
 `make itest` to run the headless integration tests.
 
-
-### Compilation
-`harness` supports CoffeeScript and Stylus right now.
-
-
-### Testing
-Testing is covered on both a unit and integration level.
-Jasmine unit tests are run with [testem](https://github.com/airportyh/testem) and integration tests are run with [casper.js](http://casperjs.org).
-
-
-### Dependency Management
-Dependencies are managed with [`browserify`](https://github.com/substack/node-browserify). App code should be broken down into small [CommonJS](http://www.commonjs.org/) modules that are reusable and well tested.
-
-
-### Deployment
-Deployment is a bit different than the usual sense. `harness` can "deploy" to any directory on your local file system.
-This makes it very easy to deploy your latest build to another repo on your filesystem, like a Rails app for example.
-
+---
 
 ### API Mocks
 `harness` makes it really easy to test your UI against specific data sets returned from an API.
 You're free to hit actual remote endpoints if you want, but `harness` makes it very easy to save and reproduce edge-case API responses locally.
 API mocks also make the integration tests fast, because API calls are local to the `harness` server.
 
----
 
+### Deployment
+Deployment is a bit different than the usual sense. `harness` can "deploy" to any directory on your local file system.
+This makes it very easy to deploy your latest build to another repo on your filesystem, like a Rails app for example.
 
-#### Input
-This setup allows you to work with the technologies you're used to and supports some common types of assets as input for the build system:
-
-- `.mustache` templates
-- `.styl` stylesheet modules
-- `.coffee` and `.js` modules
-- images
-
-### Output
-And it outputs optimized assets like you might expect:
-
-- 1 `.js` file
-- 1 `.css` file
-- images
 
 ### Integration
 Include the output assets in `public/` and create 2 new files for integration points with a server-side application:
@@ -112,7 +83,7 @@ __`.css` file for image and font rules and any necessary style overrides__
   - Smooths out style differences post-integration
 
 
-
+---
 
 
 ## HTML
@@ -158,3 +129,20 @@ $('#search').on 'click', onEnterSearch
 ## Images and Fonts
 Define a `PROJECT_PREFIX` in `harness/env.sh` for deployment ease.
 Built assets will use this prefix so you should also prefix font and image filenames with the same `PROJECT_PREFIX`.
+
+#### Input
+This setup allows you to work with the technologies you're used to and supports some common types of assets as input for the build system:
+
+- `.mustache` templates
+- `.styl` stylesheet modules
+- `.coffee` and `.js` modules
+- images
+
+### Output
+And it outputs optimized assets like you might expect:
+
+- 1 `.js` file
+- 1 `.css` file
+- images
+
+
