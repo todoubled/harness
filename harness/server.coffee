@@ -22,7 +22,7 @@ app.use express.static pub
 app.use express.bodyParser()
 
 # Use any custom routes if they're defined.
-app.use require routesPath if fs.stat routesPath
+app.use require(routesPath) if fs.existsSync routesPath
 
 # Don't start `livereload` when the integration tests are running headlessly on `8081`.
 livereload.createServer().watch pub if port is 8080
