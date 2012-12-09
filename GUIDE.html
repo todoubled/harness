@@ -6,11 +6,56 @@
 
 <hr />
 
+<p><code>harness</code> expects a certain directory structure, some of which is configurable via environment variables.
+Feel free to hack <code>harness/build.coffee</code> if you're not happy with the assumed directory structure:</p>
+
+<pre><code> project-repository
+ |- harness
+   |- build.coffee
+ |- app
+   |- src
+     |- coffeescripts
+       |- views
+       |- models
+       |- collections
+       |- locales
+       |- index.coffee
+       |- helper.coffee
+       |- integration.coffee
+     |- stylesheets
+       |- project-prefix.styl
+       |- imported-module.styl
+     |- templates
+       |- layout.mustache
+       |- modal.mustache
+     |- vendor
+       |- jquery.third-party-plugin.js
+   |- test
+     |- unit
+       |- main-app-view.coffee
+       |- model.coffee
+     |- integration
+       |- common-user-behavior.coffee
+       |- cookied-user-behavior.coffee
+   |- fixtures
+     |- mocked-api-response.json
+     |- edge-case-response.json
+   |- public
+     |- index.html
+     |- image.png
+</code></pre>
+
+<p>You can customize the names of the <code>app</code> and <code>src</code> directories by setting <code>APP_DIR</code> and <code>SOURCE_DIR</code> in <code>harness/env.sh</code>.</p>
+
+<h3 id="workflow">Workflow</h3>
+
 <p><code>make install</code> to setup dependencies.</p>
 
 <p><code>make server</code> to start the development server and file watchers.</p>
 
 <p><code>make test</code> to start the auto-test runner.</p>
+
+<p><code>make itest</code> to run the headless integration tests.</p>
 
 <h3 id="compilation">Compilation</h3>
 

@@ -19,45 +19,7 @@ It resolves dependencies and turns many small source files into a few larger fil
 <span class="nv">async = </span><span class="nx">require</span> <span class="s">&#39;async&#39;</span>
 <span class="nv">colors = </span><span class="nx">require</span> <span class="s">&#39;colors&#39;</span>
 <span class="nv">shell = </span><span class="nf">(command) -&gt;</span> <span class="nx">spawn</span> <span class="s">&#39;sh&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;-c&#39;</span><span class="p">,</span> <span class="s">&quot;./harness/env.sh </span><span class="si">#{</span><span class="nx">command</span><span class="si">}</span><span class="s">&quot;</span><span class="p">]</span>
-<span class="nv">stylusOptions = </span><span class="s">&#39;--line-numbers&#39;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>This build script expects the following directory structure:</p>
-
-<pre><code>project-repository
-|- harness
-  |- build.coffee
-|- app
-  |- src
-    |- coffeescripts
-      |- views
-      |- models
-      |- collections
-      |- locales
-      |- index.coffee
-      |- helper.coffee
-      |- integration.coffee
-    |- stylesheets
-      |- project-prefix.styl
-      |- imported-module.styl
-    |- templates
-      |- layout.mustache
-      |- modal.mustache
-    |- vendor
-      |- jquery.third-party-plugin.js
-  |- test
-    |- unit
-      |- main-app-view.coffee
-      |- model.coffee
-    |- integration
-      |- common-user-behavior.coffee
-      |- cookied-user-behavior.coffee
-  |- fixtures
-    |- mocked-api-response.json
-    |- edge-case-response.json
-  |- public
-    |- index.html
-    |- image.png
-</code></pre>
-
-<p>You can customize the names of the <code>app</code> and <code>src</code> directories by setting <code>APP_DIR</code> and <code>SOURCE_DIR</code> in <code>harness/env.sh</code>.</p></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Directories</p></div></div><div class="code"><div class="wrapper"><span class="nv">root = </span><span class="nx">require</span><span class="p">(</span><span class="s">&#39;path&#39;</span><span class="p">).</span><span class="nx">normalize</span> <span class="s">&quot;</span><span class="si">#{</span><span class="nx">__dirname</span><span class="si">}</span><span class="s">/..&quot;</span>
+<span class="nv">stylusOptions = </span><span class="s">&#39;--line-numbers&#39;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Directories</p></div></div><div class="code"><div class="wrapper"><span class="nv">root = </span><span class="nx">require</span><span class="p">(</span><span class="s">&#39;path&#39;</span><span class="p">).</span><span class="nx">normalize</span> <span class="s">&quot;</span><span class="si">#{</span><span class="nx">__dirname</span><span class="si">}</span><span class="s">/..&quot;</span>
 <span class="nv">appDir = </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">APP_DIR</span> <span class="o">||</span> <span class="s">&#39;app&#39;</span>
 <span class="nv">projectPrefix = </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PROJECT_PREFIX</span>
 <span class="nv">sourceDir = </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">SOURCE_DIR</span> <span class="o">||</span> <span class="s">&#39;source&#39;</span></div></div></div><div class="segment"><div class="comments"><div class="wrapper"><p>Paths</p></div></div><div class="code"><div class="wrapper"><span class="nv">publicPath = </span><span class="s">&quot;</span><span class="si">#{</span><span class="nx">appDir</span><span class="si">}</span><span class="s">/public&quot;</span>
