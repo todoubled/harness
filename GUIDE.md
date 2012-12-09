@@ -2,6 +2,8 @@
 
 ###### A general tutorial for working with `harness`.
 
+See [hello world](https://github.com/todoubled/harness/tree/master/app) for an example app.
+
 Ship HTML, CSS and JavaScript by writing small Mustache, Stylus and CoffeeScript modules with unit and integration test coverage.
 
 ---
