@@ -28,10 +28,8 @@ Feel free to hack `harness/build.coffee` if you're not happy with the assumed di
 │   │   ├── integration.js
 │   │   └── vendor
 │   │       ├── backbone
-│   │       │   ├── backbone-0.5.3.js
 │   │       │   └── backbone-0.9.2.js
 │   │       ├── jquery
-│   │       │   ├── jquery-1.6.4.js
 │   │       │   └── jquery-1.8.1.js
 │   │       ├── mustache
 │   │       │   └── mustache-0.5.0-dev.js
@@ -39,8 +37,8 @@ Feel free to hack `harness/build.coffee` if you're not happy with the assumed di
 │   │           └── underscore-1.3.3.js
 │   ├── source
 │   │   ├── coffeescripts
+│   │   │   ├── hello-world.coffee
 │   │   │   ├── helper.coffee
-│   │   │   ├── index.coffee
 │   │   │   ├── integration.coffee
 │   │   │   └── views
 │   │   │       └── app.coffee
@@ -66,7 +64,6 @@ Feel free to hack `harness/build.coffee` if you're not happy with the assumed di
 │   ├── start.coffee
 │   └── testem.json
 └── package.json
-
 ```
 
 You can customize the names of the `app` and `src` directories by setting `APP_DIR` and `SOURCE_DIR` in `harness/env.sh`.
