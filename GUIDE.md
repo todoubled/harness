@@ -19,7 +19,6 @@ Feel free to hack `harness/build.coffee` if you're not happy with the assumed di
        |- views
        |- models
        |- collections
-       |- locales
        |- index.coffee
        |- helper.coffee
        |- integration.coffee
@@ -58,30 +57,6 @@ You can customize the names of the `app` and `src` directories by setting `APP_D
 
 `make itest` to run the headless integration tests.
 
----
-
-### API Mocks
-`harness` makes it really easy to test your UI against specific data sets returned from an API.
-You're free to hit actual remote endpoints if you want, but `harness` makes it very easy to save and reproduce edge-case API responses locally.
-API mocks also make the integration tests fast, because API calls are local to the `harness` server.
-
-
-### Deployment
-Deployment is a bit different than the usual sense. `harness` can "deploy" to any directory on your local file system.
-This makes it very easy to deploy your latest build to another repo on your filesystem, like a Rails app for example.
-
-
-### Integration
-Include the output assets in `public/` and create 2 new files for integration points with a server-side application:
-
-__`.js` file for configuration and instantiation__
-  - Allows configuration to be passed in from the server
-  - Discourages auto-instantiation
-
-__`.css` file for image and font rules and any necessary style overrides__
-  - Allows image and font assets to be served up via the server caching strategies
-  - Smooths out style differences post-integration
-
 
 ---
 
@@ -98,18 +73,11 @@ This object is written to a temporary `node_module` called `tmplates` that is cr
 
 ## CSS
 Stylus is preferred but CSS can also be imported.
-
-#### Implementation
-Standard `stylus` CLI setup.
+There are plans to support any preprocessing step in the future if you want to use Sass or Less.
 
 
 ## JavaScript
-CoffeeScript is preferred but JavaScript can also be `require`'d. Modules should be written in the [CommonJS](http://www.commonjs.org/) format.
-
-The general philosophy is to build apps by composing many small modules that represent one unit of functionality.
-Each module exports an object that represents the publicly accessible API that is available via `require`.
-Modules can add public methods to the API by exposing properties on top-level `this` in any given module file.
-
+CoffeeScript is preferred but JavaScript can also be `require`'d. Modules should be small, reusable and written in the [CommonJS](http://www.commonjs.org/) format:
 
 ```
 # ui-callbacks.coffee
@@ -127,22 +95,29 @@ $('#search').on 'click', onEnterSearch
 ```
 
 ## Images and Fonts
-Define a `PROJECT_PREFIX` in `harness/env.sh` for deployment ease.
-Built assets will use this prefix so you should also prefix font and image filenames with the same `PROJECT_PREFIX`.
+Prefix image and font filenames with the prefix defined by `PROJECT_PREFIX` in `harness/env.sh` for deployment ease.
+Built assets will also use this prefix so that `make deploy` can just glob `app/public/PROJECT_PREFIX*`.
 
-#### Input
-This setup allows you to work with the technologies you're used to and supports some common types of assets as input for the build system:
+---
 
-- `.mustache` templates
-- `.styl` stylesheet modules
-- `.coffee` and `.js` modules
-- images
-
-### Output
-And it outputs optimized assets like you might expect:
-
-- 1 `.js` file
-- 1 `.css` file
-- images
+## API Mocks
+`harness` makes it really easy to test your UI against specific data sets returned from an API.
+You're free to hit actual remote endpoints if you want, but `harness` makes it very easy to save and reproduce edge-case API responses locally.
+API mocks also make the integration tests fast, because API calls are local to the `harness` server.
 
 
+## Deployment
+Deployment is a bit different than in the usual sense. `harness` can "deploy" to any directory on your local file system.
+This makes it very easy to deploy your latest build to another local repo, like a Rails app for example.
+
+
+## Integration
+Include the output assets in `public/` and create 2 new files for integration points with a server-side application:
+
+__`.js` file for configuration and instantiation__
+  - Allows configuration to be passed in from the server
+  - Discourages auto-instantiation
+
+__`.css` file for image and font rules and any necessary style overrides__
+  - Allows image and font assets to be served up via the server caching strategies
+  - Smooths out style differences post-integration
