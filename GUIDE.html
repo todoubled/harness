@@ -1,10 +1,13 @@
 <!DOCTYPE html><html lang="en"><head><title>GUIDE</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="GUIDE"><meta name="groc-project-path" content="GUIDE.md"><meta name="groc-github-url" content="https://github.com/todoubled/todoubled"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path"><a href="https://github.com/todoubled/todoubled/blob/master/GUIDE.md">GUIDE.md</a></div></div><div id="document"><div class="segment"><div class="comments"><div class="wrapper"><h1 id="guide">Guide</h1>
 
-<h6 id="ageneraltutorialonworkingwithharness">A general tutorial on working with <code>harness</code>.</h6>
+<h6 id="ageneraltutorialforworkingwithharness">A general tutorial for working with <code>harness</code>.</h6>
 
 <p>Ship HTML, CSS and JavaScript by writing small Mustache, Stylus and CoffeeScript modules with unit and integration test coverage.</p>
 
 <hr />
+
+<p>First, run <code>make install</code> to setup dependencies.
+This will install all necessary node packages and tools.</p>
 
 <p><code>harness</code> expects a certain directory structure, some of which is configurable via environment variables.
 Feel free to hack <code>harness/build.coffee</code> if you're not happy with the assumed directory structure:</p>
@@ -46,15 +49,12 @@ Feel free to hack <code>harness/build.coffee</code> if you're not happy with the
 
 <p>You can customize the names of the <code>app</code> and <code>src</code> directories by setting <code>APP_DIR</code> and <code>SOURCE_DIR</code> in <code>harness/env.sh</code>.</p>
 
-<h3 id="workflow">Workflow</h3>
+<p>Assuming you've got the directory structure explained above, <code>make server</code> will start the development server and file watchers.</p>
 
-<p><code>make install</code> to setup dependencies.</p>
+<p>In a separate shell, run <code>make test</code> to start the auto-test runner.
+Tests in <code>app/test/unit</code> will run every time a file in <code>app/test/unit</code> or <code>app/source</code> changes.</p>
 
-<p><code>make server</code> to start the development server and file watchers.</p>
-
-<p><code>make test</code> to start the auto-test runner.</p>
-
-<p><code>make itest</code> to run the headless integration tests.</p>
+<p>Periodically, run <code>make itest</code> to run the headless integration tests and ensure your UI is behaving as expected.</p>
 
 <hr />
 
