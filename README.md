@@ -8,6 +8,8 @@ With `harness` you can give the apps separate codebases and still have the same 
 
 Write an app with `harness` and deploy it to any host web app or even S3.
 
+Think in terms of a host and guest app situation. `harness` builds guest apps to be embedded on pages in Rails host apps.
+
 
 # Features
 __Auto-compiling assets__

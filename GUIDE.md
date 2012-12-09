@@ -79,7 +79,7 @@ There are plans to support any preprocessing step in the future if you want to u
 CoffeeScript is preferred but JavaScript can also be `require`'d. Modules should be small, reusable and written in the [CommonJS](http://www.commonjs.org/) format.
 Here's some example usage of 2 different modules:
 
-`app/source/coffeescripts/ui-callbacks.coffee`
+`app/source/coffeescripts/ui-callbacks.coffee`:
 
 ```
 {Search} = require '../wrappers/search.coffee'
@@ -88,7 +88,7 @@ Here's some example usage of 2 different modules:
   new Search {event}
 ```
 
-`app/source/coffeescripts/event-handlers.coffee`
+`app/source/coffeescripts/event-handlers.coffee`:
 
 ```
 {onEnterSearch} = require './ui-callbacks.coffee'
@@ -114,12 +114,15 @@ This makes it very easy to deploy your latest build to another local repo, like 
 
 
 ## Integration
-Include the output assets in `public/` and create 2 new files for integration points with a server-side application:
+Since you're now developing outside of the production host app, the goal is to reproduce that environment as identically as possible.
+This involves mirroring the instantiation and style override files that need to exist in the host app repo as integration points.
+In your `harness` repo, instantiate and smooth out styles in `app/source/coffeescripts/integration.coffee` and `app/source/stylesheets/integration.styl`.
+When integrating with the host app repo, create 2 new files for integration points:
 
-__`.js` file for configuration and instantiation__
+__`PROJECT_PREFIX-integration.js` file for configuration and instantiation__
   - Allows configuration to be passed in from the server
   - Discourages auto-instantiation
 
-__`.css` file for image and font rules and any necessary style overrides__
-  - Allows image and font assets to be served up via the server caching strategies
+__`PROJECT_PREFIX-integration.css` file for image and font rules and any necessary style overrides__
+  - Allows image and font assets to be served up via the production server-side caching strategies
   - Smooths out style differences post-integration
