@@ -43,7 +43,7 @@ helperCoffeeFile = "#{coffeescriptPath}/helper.coffee"
 harnessTestFile = "#{appDir}/harness-tests.js"
 integrationCoffeeFile = "#{coffeescriptPath}/integration.coffee"
 integrationStylesheetFile = "#{stylesheetPath}/integration.styl"
-mainCoffeescriptFile = "#{coffeescriptPath}/index.coffee"
+mainCoffeescriptFile = "#{coffeescriptPath}/#{projectPrefix}.coffee"
 mainStylesheetFile = "#{stylesheetPath}/#{projectPrefix}.styl"
 mainTemplateFile = "#{templateModulePath}/index.js"
 

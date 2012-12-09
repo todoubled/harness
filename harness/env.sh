@@ -8,6 +8,6 @@
 # - `CASPER_HELPERS` augments the helpers in `harness/casper-helpers.coffee` with your own for more succint integration tests.
 #
 export PATH="./node_modules/.bin:$PATH"
-export PROJECT_PREFIX="example-app"
+export PROJECT_PREFIX="hello-world"
 
 exec "$@"
