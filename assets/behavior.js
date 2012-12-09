@@ -103,24 +103,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
               "type": "heading",
               "data": {
                 "level": 3,
-                "title": "Compilation",
-                "slug": "compilation"
-              },
-              "depth": 3
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 3,
-                "title": "Testing",
-                "slug": "testing"
-              },
-              "depth": 3
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 3,
-                "title": "Dependency Management",
-                "slug": "dependency-management"
+                "title": "API Mocks",
+                "slug": "api-mocks"
               },
               "depth": 3
             }, {
@@ -129,33 +113,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "level": 3,
                 "title": "Deployment",
                 "slug": "deployment"
-              },
-              "depth": 3
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 3,
-                "title": "API Mocks",
-                "slug": "api-mocks"
-              },
-              "depth": 3,
-              "children": [
-                {
-                  "type": "heading",
-                  "data": {
-                    "level": 4,
-                    "title": "Input",
-                    "slug": "input"
-                  },
-                  "depth": 4
-                }
-              ]
-            }, {
-              "type": "heading",
-              "data": {
-                "level": 3,
-                "title": "Output",
-                "slug": "output"
               },
               "depth": 3
             }, {
@@ -219,7 +176,26 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
                 "title": "Images and Fonts",
                 "slug": "images-and-fonts"
               },
-              "depth": 2
+              "depth": 2,
+              "children": [
+                {
+                  "type": "heading",
+                  "data": {
+                    "level": 4,
+                    "title": "Input",
+                    "slug": "input"
+                  },
+                  "depth": 4
+                }, {
+                  "type": "heading",
+                  "data": {
+                    "level": 3,
+                    "title": "Output",
+                    "slug": "output"
+                  },
+                  "depth": 3
+                }
+              ]
             }
           ]
         },
@@ -239,24 +215,8 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
           "type": "heading",
           "data": {
             "level": 3,
-            "title": "Compilation",
-            "slug": "compilation"
-          },
-          "depth": 3
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 3,
-            "title": "Testing",
-            "slug": "testing"
-          },
-          "depth": 3
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 3,
-            "title": "Dependency Management",
-            "slug": "dependency-management"
+            "title": "API Mocks",
+            "slug": "api-mocks"
           },
           "depth": 3
         }, {
@@ -265,33 +225,6 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "level": 3,
             "title": "Deployment",
             "slug": "deployment"
-          },
-          "depth": 3
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 3,
-            "title": "API Mocks",
-            "slug": "api-mocks"
-          },
-          "depth": 3,
-          "children": [
-            {
-              "type": "heading",
-              "data": {
-                "level": 4,
-                "title": "Input",
-                "slug": "input"
-              },
-              "depth": 4
-            }
-          ]
-        }, {
-          "type": "heading",
-          "data": {
-            "level": 3,
-            "title": "Output",
-            "slug": "output"
           },
           "depth": 3
         }, {
@@ -355,7 +288,26 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
             "title": "Images and Fonts",
             "slug": "images-and-fonts"
           },
-          "depth": 2
+          "depth": 2,
+          "children": [
+            {
+              "type": "heading",
+              "data": {
+                "level": 4,
+                "title": "Input",
+                "slug": "input"
+              },
+              "depth": 4
+            }, {
+              "type": "heading",
+              "data": {
+                "level": 3,
+                "title": "Output",
+                "slug": "output"
+              },
+              "depth": 3
+            }
+          ]
         }
       ]
     }, {
