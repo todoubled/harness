@@ -40,3 +40,9 @@ if !Array::indexOf
       return i if @[i] is obj
       i++
     -1
+
+
+document.write '<script src="/vendor/jquery/jquery-'+jQueryVersion+'.js"><\/script>'
+document.write '<script src="/vendor/underscore/underscore-'+underscoreVersion+'.js"><\/script>'
+document.write '<script src="/vendor/mustache/mustache-'+mustacheVersion+'.js"><\/script>'
+document.write '<script src="/vendor/backbone/backbone-'+backboneVersion+'.js"><\/script>'
