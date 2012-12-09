@@ -1,2 +1,2 @@
 $ ->
-  new App().render()
+  new App

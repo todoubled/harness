@@ -1,11 +1,19 @@
 {Template} = require 'tmplates'
+{Headlines} = require '../collections/headlines.coffee'
 
 class @App extends Backbone.View
   template: Template 'hello-world'
 
-  present: ->
-    location: 'World'
+  initialize: ->
+    new Headlines().fetch
+      success: (collection) =>
+        @render collection.models[0]
 
-  render: ->
-    html = Mustache.to_html @template, @present()
+
+  present: (model) ->
+    headline: model.get 'headline'
+
+
+  render: (model) ->
+    html = Mustache.to_html @template, @present model
     $(document.body).append html
