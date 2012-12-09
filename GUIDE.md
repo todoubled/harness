@@ -17,36 +17,56 @@ This will install all necessary node packages and tools.
 Feel free to hack `harness/build.coffee` if you're not happy with the assumed directory structure:
 
 ```
- project-repository
- |- harness
-   |- build.coffee
- |- app
-   |- src
-     |- coffeescripts
-       |- views
-       |- models
-       |- index.coffee
-       |- helper.coffee
-       |- integration.coffee
-     |- stylesheets
-       |- hello-world.styl
-       |- headline.styl
-     |- templates
-       |- layout.mustache
-       |- headline.mustache
-     |- vendor
-       |- state-machine.js
-   |- test
-     |- unit
-       |- main-app-view.coffee
-       |- model.coffee
-     |- integration
-       |- pageload-behavior.coffee
-   |- fixtures
-     |- headline-api-response.json
-   |- public
-     |- index.html
-     |- image.png
+├── Makefile
+├── app
+│   ├── public
+│   │   ├── hello-world.css
+│   │   ├── hello-world.js
+│   │   ├── helper.js
+│   │   ├── index.html
+│   │   ├── integration.css
+│   │   ├── integration.js
+│   │   └── vendor
+│   │       ├── backbone
+│   │       │   ├── backbone-0.5.3.js
+│   │       │   └── backbone-0.9.2.js
+│   │       ├── jquery
+│   │       │   ├── jquery-1.6.4.js
+│   │       │   └── jquery-1.8.1.js
+│   │       ├── mustache
+│   │       │   └── mustache-0.5.0-dev.js
+│   │       └── underscore
+│   │           └── underscore-1.3.3.js
+│   ├── source
+│   │   ├── coffeescripts
+│   │   │   ├── helper.coffee
+│   │   │   ├── index.coffee
+│   │   │   ├── integration.coffee
+│   │   │   └── views
+│   │   │       └── app.coffee
+│   │   ├── stylesheets
+│   │   │   ├── hello-world.styl
+│   │   │   └── integration.styl
+│   │   └── templates
+│   │       └── hello-world.mustache
+│   └── test
+│       ├── integration
+│       │   └── example.coffee
+│       ├── testem.json
+│       └── unit
+│           └── views
+│               └── app.coffee
+├── harness
+│   ├── build.coffee
+│   ├── casper-helpers.coffee
+│   ├── deploy.coffee
+│   ├── env.sh
+│   ├── processes.json
+│   ├── server.coffee
+│   ├── start.coffee
+│   └── testem.json
+└── package.json
+
 ```
 
 You can customize the names of the `app` and `src` directories by setting `APP_DIR` and `SOURCE_DIR` in `harness/env.sh`.

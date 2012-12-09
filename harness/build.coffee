@@ -39,11 +39,11 @@ unitTestPath = "#{appDir}/test/unit"
 
 # Files
 bundledJSFile = "#{publicPath}/#{projectPrefix}.js"
-devHelperCoffeeFile = "#{coffeescriptPath}/dev-helper.coffee"
+helperCoffeeFile = "#{coffeescriptPath}/helper.coffee"
 harnessTestFile = "#{appDir}/harness-tests.js"
 integrationCoffeeFile = "#{coffeescriptPath}/integration.coffee"
 integrationStylesheetFile = "#{stylesheetPath}/integration.styl"
-mainCoffeescriptFile = "#{coffeescriptPath}/app/index.coffee"
+mainCoffeescriptFile = "#{coffeescriptPath}/index.coffee"
 mainStylesheetFile = "#{stylesheetPath}/#{projectPrefix}.styl"
 mainTemplateFile = "#{templateModulePath}/index.js"
 
@@ -101,7 +101,7 @@ buildTemplates = (next) ->
 buildAssets = (next) ->
   unitTests = shell "browserify ./#{unitTestPath}/**/*.coffee -o #{harnessTestFile}"
   integrationJs = shell "coffee -co #{publicPath} #{integrationCoffeeFile}"
-  helperJs = shell "coffee -co #{publicPath} #{devHelperCoffeeFile}"
+  helperJs = shell "coffee -co #{publicPath} #{helperCoffeeFile}"
   integrationStyles = shell "stylus #{stylusOptions} -I #{stylesheetPath}/ -o #{publicPath}/ #{integrationStylesheetFile}"
   mainStyles = shell "stylus #{stylusOptions} -I app/src/stylesheets/ -o #{publicPath}/ #{mainStylesheetFile}"
   handleStderr [unitTests, integrationJs, helperJs, integrationStyles, mainStyles]
