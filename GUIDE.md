@@ -6,11 +6,58 @@ Write HTML, CSS and JavaScript with Mustache, Stylus and CoffeeScript.
 
 ---
 
+`harness` expects a certain directory structure, some of which is configurable via environment variables.
+Feel free to hack `harness/build.coffee` if you're not happy with the assumed directory structure:
+
+```
+ project-repository
+ |- harness
+   |- build.coffee
+ |- app
+   |- src
+     |- coffeescripts
+       |- views
+       |- models
+       |- collections
+       |- locales
+       |- index.coffee
+       |- helper.coffee
+       |- integration.coffee
+     |- stylesheets
+       |- project-prefix.styl
+       |- imported-module.styl
+     |- templates
+       |- layout.mustache
+       |- modal.mustache
+     |- vendor
+       |- jquery.third-party-plugin.js
+   |- test
+     |- unit
+       |- main-app-view.coffee
+       |- model.coffee
+     |- integration
+       |- common-user-behavior.coffee
+       |- cookied-user-behavior.coffee
+   |- fixtures
+     |- mocked-api-response.json
+     |- edge-case-response.json
+   |- public
+     |- index.html
+     |- image.png
+```
+
+You can customize the names of the `app` and `src` directories by setting `APP_DIR` and `SOURCE_DIR` in `harness/env.sh`.
+
+### Workflow
+
 `make install` to setup dependencies.
 
 `make server` to start the development server and file watchers.
 
 `make test` to start the auto-test runner.
+
+`make itest` to run the headless integration tests.
+
 
 ### Compilation
 `harness` supports CoffeeScript and Stylus right now.

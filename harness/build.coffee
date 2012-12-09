@@ -22,50 +22,6 @@ colors = require 'colors'
 shell = (command) -> spawn 'sh', ['-c', "./harness/env.sh #{command}"]
 stylusOptions = '--line-numbers'
 
-#
-# This build script expects the following directory structure:
-#
-#```
-# project-repository
-# |- harness
-#   |- build.coffee
-# |- app
-#   |- src
-#     |- coffeescripts
-#       |- views
-#       |- models
-#       |- collections
-#       |- locales
-#       |- index.coffee
-#       |- helper.coffee
-#       |- integration.coffee
-#     |- stylesheets
-#       |- project-prefix.styl
-#       |- imported-module.styl
-#     |- templates
-#       |- layout.mustache
-#       |- modal.mustache
-#     |- vendor
-#       |- jquery.third-party-plugin.js
-#   |- test
-#     |- unit
-#       |- main-app-view.coffee
-#       |- model.coffee
-#     |- integration
-#       |- common-user-behavior.coffee
-#       |- cookied-user-behavior.coffee
-#   |- fixtures
-#     |- mocked-api-response.json
-#     |- edge-case-response.json
-#   |- public
-#     |- index.html
-#     |- image.png
-#```
-#
-#
-# You can customize the names of the `app` and `src` directories by setting `APP_DIR` and `SOURCE_DIR` in `harness/env.sh`.
-#
-
 
 # Directories
 root = require('path').normalize "#{__dirname}/.."
