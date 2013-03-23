@@ -94,3 +94,13 @@ watch :
 
 webserver :
 	./harness/env.sh coffee harness/server
+
+
+
+### V2 Targets
+
+cli :
+	./node_modules/.bin/coffee -c --bare bin/cli.coffee
+	rm bin/cli.js
+	echo '#!/usr/bin/env node' > bin/cli.js
+	cat bin/cli.coffee | ./node_modules/.bin/coffee -sc --bare >> bin/cli.js
