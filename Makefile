@@ -1,19 +1,36 @@
-#
-# ## Development Tasks
-#
-# ##### Shortcuts to scripts with common configuration.
-#
 .PHONY: test docs
 
+
+build :
+	./node_modules/.bin/coffee harness/build
+
+
+cli :
+	./node_modules/.bin/coffee -c --bare bin/cli.coffee
+	rm bin/cli.js
+	echo '#!/usr/bin/env node' > bin/cli.js
+	cat bin/cli.coffee | ./node_modules/.bin/coffee -sc --bare >> bin/cli.js
 
 #
 # #### `make deploy OUTPUT=/absolute/path/to/rails/app`
 #
 # ###### "Deploy" in the sense of copying built assets into another local app repository
 #
-deploy :
-	make release
-	./harness/env.sh coffee harness/deploy
+deploy : release
+	./node_modules/.bin/coffee harness/deploy
+# ---
+
+
+#
+# #### `make dev`
+#
+# - Primary development task
+# - Start up a file watcher to run `make build` each time a source file changes.
+# - Start up a web server to respond to mock API requests at `localhost:8080`.
+# - Start up a `livereload` instance to refresh the browser each time a file changes (Chrome extension required).
+#
+dev :
+	./node_modules/.bin/coffee harness/start development-server
 # ---
 
 
@@ -23,17 +40,7 @@ deploy :
 # ###### Generate documentation from inline comments in the source CoffeeScript files.
 #
 docs :
-	./harness/env.sh groc -e "./node_modules/**/*" "./**/*.coffee" README.md
-# ---
-
-
-#
-# #### `make install`
-#
-# ###### Install npm dependencies.
-#
-install :
-	./harness/env.sh npm install
+	./node_modules/.bin/groc -e "./node_modules/**/*" "./**/*.coffee" README.md
 # ---
 
 
@@ -45,23 +52,8 @@ install :
 # - Simulate clicking, form filling, and URL manipulation.
 # - Assert cookie values, URL values, and UI values.
 #
-itest :
-	make build
-	./harness/env.sh coffee harness/start integration-tests
-# ---
-
-
-
-#
-# #### `make server`
-#
-# - Primary development task
-# - Start up a file watcher to run `make build` each time a source file changes.
-# - Start up a web server to respond to mock API requests at `localhost:8080`.
-# - Start up a `livereload` instance to refresh the browser each time a file changes (Chrome extension required).
-#
-server :
-	./harness/env.sh coffee harness/start development-server
+itest : build
+	./node_modules/.bin/coffee harness/start integration-tests
 # ---
 
 
@@ -72,14 +64,9 @@ server :
 # - Start up a testem instance that reruns all tests each time a source or test file changes.
 # - Tests are run automatically in all browsers currently opened to `localhost:7357`.
 #
-test :
-	make build
-	./harness/env.sh testem -f harness/testem.json app/test
+test : build
+	./node_modules/.bin/testem -f harness/testem.json -l PhantomJS app/test
 # ---
-
-
-build :
-	./harness/env.sh coffee harness/build
 
 
 release :
@@ -89,8 +76,8 @@ release :
 
 
 watch :
-	./harness/env.sh watchman app/source "make build"
+	./node_modules/.bin/watchman app/source "make build"
 
 
 webserver :
-	./harness/env.sh coffee harness/server
+	./node_modules/.bin/coffee harness/server
