@@ -1,0 +1,15 @@
+Usage: harness [command]
+
+Commands:
+
+  dev               Start file watchers for source and test code.
+                    Start a webserver at http://localhost:8080.
+
+  test              Run unit tests with testem every time a source or test file is changed.
+                    Run integration tests with casper.js every time a source or test file is changed.
+
+  deploy            Copy built assets to local filesystem path.
+
+
+
+Specify a command. Configure commands in .harness.yml.

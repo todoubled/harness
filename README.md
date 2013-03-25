@@ -90,18 +90,17 @@ __Fast and transparent tests__
 - [node.js 0.8.8+](http://nodejs.org/dist/v0.8.8/node-v0.8.8.pkg)
 - pygments: `sudo easy_install pygments`
 - casper.js: `brew install casperjs`
-
-`make install` to install dependencies after a fresh clone.
-
 ---
 
 
-## Workflow
-`make server` starts file watchers for `app/source` and `app/test` and a server at `http://localhost:8080` for development.
+## Usage
 
-`make test` to run the tests at `http://localhost:7357` in all open browsers every time a source or test file is changed.
+`npm install -g harness`
 
-`make itest` to run the integration tests every time a source or test file is changed.
+`harness generate` to generate an example config and app directory structure.
 
-`make deploy OUTPUT=/path/to/www` to make a build and `cp public/prefix*` a directory of your choosing.
+`harness dev` starts file watchers for `app/source` and `app/test` and a server at `http://localhost:8080` for development.
 
+`harness test` to run tests every time a source or test file is changed.
+
+`harness deploy` to make a build and `cp public/prefix*` to the configured output directory in `.harness.yml`.
