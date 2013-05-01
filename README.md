@@ -95,7 +95,12 @@ __Fast and transparent tests__
 
 ## Usage
 
-`npm install -g harness`
+##### WIP
+
+Before this is legitimized as a CLI tool, feel free to copy the `Makefile`, `package.json`, and `harness/` dir into your own repo and run `npm install`.
+
+
+Eventual CLI:
 
 `harness generate` to generate an example config and app directory structure.
 
