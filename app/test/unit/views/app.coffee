@@ -1,4 +1,4 @@
-{App} = require '../../source/coffeescripts/views/app.coffee'
+{App} = require '../../../source/coffeescripts/views/app.coffee'
 
 describe 'App', ->
   it 'is defined', ->
