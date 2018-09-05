@@ -25,7 +25,7 @@ __Browser auto-refresh with [`live-reload`](https://github.com/livereload/livere
   - Page is refreshed in any browser currently opened to `localhost:8080` every time a source file changes
 
 
-__Auto-running unit tests in all browsers with [`jasmine`](http://pivotal.github.com/jasmine/) and [`testem`](https://github.com/airportyh/testem)__
+__Auto-running unit tests in all browsers with [`jasmine`](https://jasmine.github.io/) and [`testem`](https://github.com/airportyh/testem)__
 
   - Unit tests are auto-run in any browser currently opened to `localhost:7357` every time a source or test file changes
 
